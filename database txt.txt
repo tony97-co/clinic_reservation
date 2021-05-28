@@ -1,0 +1,85 @@
+جداول المشروع
+
+
+
+*****************************
+المستخدمين
+user
+id
+name
+phone
+email
+password
+role  (enum)
+*****************************
+المريض 
+علاقه مع المستخدمين
+
+patient
+id
+name
+blood type
+age
+chronic disease     امراض مزمنه
+
+*****************************
+العيادات
+clinic
+ id
+ name
+ location
+*****************************
+ الدكاترة علاقه مع 
+ المستشفى 1-1
+ id
+ name
+ image
+ email
+ phone
+ Degree
+*****************************
+ المعمل
+ lap doctors
+ id
+ result
+ image
+ user id
+ clinic id
+
+*****************************
+ التخصصات
+
+ specialist
+ id
+ name
+*****************************
+الشكاوي
+complaints
+
+id
+body
+*****************************
+الاخبار
+news
+id
+body
+image
+
+*****************************
+
+الفحوصات
+medical examination.
+id
+book id
+name
+result
+
+*****************************
+الحجز
+book 
+id
+doc id
+patient id
+date
+state
+*****************************
