@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->string('blood-type'); // فصيلة الدم
             $table->string('chronic-disease'); //الامراض المزمنة
-            $table->string('location');
+    
             $table->timestamps();
 
 

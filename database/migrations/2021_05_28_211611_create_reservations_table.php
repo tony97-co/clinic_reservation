@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->string('doctor_id');
             $table->string('patient_id');
-            $table->string('state');
+            $table->enum('state',['finised','notstarted','pinding'])->default('notstarted');
             $table->timestamps();
         });
     }

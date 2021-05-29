@@ -15,7 +15,6 @@ class CreateLapDoctorsTable extends Migration
     {
         Schema::create('lap_doctors', function (Blueprint $table) {
             $table->id();
-            $table->string('result');
             $table->string('image');
             $table->string('user_id');
             $table->string('clinic_id');
