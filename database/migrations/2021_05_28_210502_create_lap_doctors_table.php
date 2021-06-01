@@ -17,13 +17,13 @@ class CreateLapDoctorsTable extends Migration
             $table->increments('id');
             $table->string('image');
 
-            $table->$table->increments('doctor_id')->unsigned()->index();
+            $table->increments('doctor_id')->unsigned()->index();
             $table->foreign('doctor_id')->references('id')->on('doctors');
 
-            $table->$table->increments('user_id')->unsigned()->index();
+            $table->increments('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->$table->increments('clinic_id')->unsigned()->index();
+            $table->increments('clinic_id')->unsigned()->index();
             $table->foreign('clinic_id')->references('id')->on('clinics');
 
 
