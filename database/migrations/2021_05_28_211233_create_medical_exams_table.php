@@ -14,10 +14,17 @@ class CreateMedicalExamsTable extends Migration
     public function up()
     {
         Schema::create('medical_exams', function (Blueprint $table) {
-            $table->id();
-            $table->string('reservation_id');
-            $table->string('result');
+            $table->increments('id');
+            $table->string('name');
+            $table->string('result')->nullable();
             $table->timestamps();
+
+            $table->increments('interview_id')->unsigned()->index();
+            $table->foreign('interview_id')->references('id')->on('interviews');
+
+            $table->increments('clinic_id')->unsigned()->index();
+            $table->foreign('clinic_id')->references('id')->on('clinics');
+
         });
     }
 

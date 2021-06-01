@@ -14,10 +14,17 @@ class CreateClinicsTable extends Migration
     public function up()
     {
         Schema::create('clinics', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->string('location');
             $table->timestamps();
+
+            $table->$table->bigIncrements('doctor_id')->unsigned()->index();
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+
+            $table->$table->bigIncrements('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

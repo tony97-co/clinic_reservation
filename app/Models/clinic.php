@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clinic extends Model
 {
-    use HasFactory;
+    protected $table= "clinics";
+
+
+
+    public function lap_doctor(){
+
+        return $this->hasOne('Lap_doctor::Class');
+
+    }
 }
