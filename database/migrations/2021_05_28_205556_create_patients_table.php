@@ -14,12 +14,13 @@ class CreatePatientsTable extends Migration
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('blood-type'); // فصيلة الدم
-            $table->string('chronic-disease'); //الامراض المزمنة
-    
+            $table->increments('id');
+            $table->bigInteger('blood_type');
+            $table->string('chronic_disease');
             $table->timestamps();
+
+            $table->increments('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
 
 
         });

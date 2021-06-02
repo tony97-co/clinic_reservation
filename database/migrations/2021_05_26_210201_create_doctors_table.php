@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReservationsTable extends Migration
+class CreateDoctorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->string('doctor_id');
-            $table->string('patient_id');
-            $table->enum('state',['finised','notstarted','pinding'])->default('notstarted');
+        Schema::create('doctors', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('image');
+            $table->string('phone');
+            $table->string('Degree');
             $table->timestamps();
+
+
         });
     }
 
@@ -29,6 +31,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('doctors');
     }
 }

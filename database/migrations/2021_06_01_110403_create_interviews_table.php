@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateInterviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('interviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('body');
-            $table->timestamps();
 
             $table->increments('doctor_id')->unsigned()->index();
             $table->foreign('doctor_id')->references('id')->on('doctors');
 
+            $table->increments('patient_id')->unsigned()->index();
+            $table->foreign('patient_id')->references('id')->on('patients');
+
+            $table->enum('state',['finished','notstarted','pending'])->default('notstarted');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +34,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('interviews');
     }
 }
