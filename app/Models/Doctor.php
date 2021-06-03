@@ -10,7 +10,7 @@ class Doctor extends Model
 
     public function clinic(){
 
-        return $this->hasOne('Clinic::Class');
+        return $this->hasMany('Clinic::Class');
 
     }
 
@@ -24,7 +24,13 @@ class Doctor extends Model
 
     public function specialist(){
 
-        return $this->hasOne('Specialist::Class');
+        return $this->belongsTo('Specialist::Class');
+
+    }
+
+    public function work_time(){
+
+        return $this->hasOne('Work_time::Class');
 
     }
 }

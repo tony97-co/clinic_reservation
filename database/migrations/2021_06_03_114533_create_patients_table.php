@@ -15,14 +15,17 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('gender');
             $table->bigInteger('blood_type');
             $table->string('chronic_disease');
-            $table->timestamps();
+            $table->string('sensitive');
+            $table->string('gentics_disease');
+            $table->string('social_status');
+            $table->string('bad_happit');
+            $table->date('birth');
 
-            $table->increments('user_id')->unsigned()->index();
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
-
         });
     }
 

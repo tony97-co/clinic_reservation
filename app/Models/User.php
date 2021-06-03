@@ -42,6 +42,34 @@ class User extends Authenticatable
     ];
 
 
+    public function clinic()
+    {
+        return $this->belongsToMany('Clinic::Class');
+    }
+
+
+    public function patient()
+    {
+        return $this->hasOne('Patient::Class');
+    }
+
+    public function doctor()
+    {
+        return $this->role == 'doctor';
+    }
+    public function lap_doctor()
+    {
+        return $this->role == 'lapDoctor';
+    }
+    public function admin()
+    {
+        return $this->role == 'admin';
+    }
+    public function superAdmin()
+    {
+        return $this->role == 'superAdmin';
+        }
+
     public function complaint()
     {
         return $this->hasMany('Complaint::Class');

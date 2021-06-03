@@ -17,5 +17,5 @@ class Interview extends Model
 
     public function doctor()
     {
-        return $this->belongsTo(Doctor::class);
+        return $this->h(Doctor::class);
     }}

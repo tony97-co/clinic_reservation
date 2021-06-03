@@ -10,10 +10,10 @@ class Lap_doctor extends Model
     protected $table= "lap_doctors";
 
 
-
     public function clinic(){
 
         return $this->belongsTo('Clinic::Class');
 
     }
+
 }
