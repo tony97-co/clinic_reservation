@@ -16,11 +16,11 @@ class CreateComplaintsTable extends Migration
         Schema::create('complaints', function (Blueprint $table) {
             $table->increments('id');
             $table->string('complaint');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
-            $table->increments('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
-
+            
         });
     }
 

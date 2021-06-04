@@ -19,8 +19,7 @@ class CreatePatientsTable extends Migration
             $table->string('chronic_disease');
             $table->timestamps();
 
-            $table->increments('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
+           
 
 
         });

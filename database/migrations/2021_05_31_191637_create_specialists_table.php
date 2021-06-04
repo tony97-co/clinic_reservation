@@ -16,10 +16,6 @@ class CreateSpecialistsTable extends Migration
         Schema::create('specialists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-
-
-            $table->increments('doctor_id')->unsigned()->index();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
         });
     }
 

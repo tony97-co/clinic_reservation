@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\api\specialistController;
+use App\Http\Controllers\api\usercontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,13 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::group(['namespace' => 'App\Http\Controllers\Api'], function(){
-    // Login Api For Users ==> Send phone & password
-    Route::post('user/login','usercontroller@login');
-
-    // Regestration Function ==> Send full_name & phone & password  
-    Route::post('user/register','usercontroller@register');
-   
-    
-     
-});
+Route::get('/specialists',[specialistController::class,'index']);
+Route::post('/user/register',[usercontroller::class,'Register']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\clinic;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -85,4 +86,23 @@ class usercontroller extends Controller
      *                                   End  Login Function 
      * 
      *****************************************************************************************************/
+
+
+     public function all(){
+$clinic = clinic::all();
+
+if (count($clinic) > 0) { // التأكد من وجود منتجات 
+  return response()->json([
+     'error'=>false ,
+     'message'=>'' ,
+     'data'=>$clinic],
+         200); // رسالة نجاح // يوجد منتجات حاليا
+}else
+ return response()->json([
+     'error'=>true , 
+     'message'=>'Sorry, There Are No Products Currently' ,
+     'code'=> 4],
+         404);
+
+     }
 }

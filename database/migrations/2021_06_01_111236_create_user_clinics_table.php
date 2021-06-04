@@ -17,11 +17,7 @@ class CreateUserClinicsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->increments('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
-
-            $table->increments('clinic_id')->unsigned()->index();
-            $table->foreign('clinic_id')->references('id')->on('clinics');
+            
         });
     }
 

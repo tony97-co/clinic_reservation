@@ -19,12 +19,7 @@ class CreateClinicsTable extends Migration
             $table->string('location');
             $table->timestamps();
 
-            $table->Increments('doctor_id')->unsigned()->index();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-
-            $table->Increments('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
-
+          
         });
     }
 

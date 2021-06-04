@@ -18,8 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('body');
             $table->timestamps();
 
-            $table->increments('doctor_id')->unsigned()->index();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+           
 
         });
     }

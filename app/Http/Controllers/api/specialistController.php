@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Specialists;
+namespace App\Http\Controllers\api;
+use App\Models\Specialist;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\clinic;
-class SpecialistsController extends Controller
+use App\Http\Resources\specialistResource;
+class specialistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,19 +14,8 @@ class SpecialistsController extends Controller
      */
     public function index()
     {
-        $clinics = clinic::all(); //Get All
-        if (count($clinics) > 0) { // التأكد من وجود منتجات 
-             return response()->json([
-                'error'=>false ,
-                'message'=>'' ,
-                'data'=>$clinics],
-                    200); // رسالة نجاح // يوجد منتجات حاليا
-        }else
-            return response()->json([
-                'error'=>true , 
-                'message'=>'Sorry, There Are No Products Currently' ,
-                'code'=> 4],
-                    404);
+       $Specialists = Specialist::all();
+       return specialistResource::collection($Specialists);
     }
 
     /**
@@ -53,10 +42,10 @@ class SpecialistsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Specialists  $specialists
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Specialists $specialists)
+    public function show($id)
     {
         //
     }
@@ -64,10 +53,10 @@ class SpecialistsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Specialists  $specialists
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Specialists $specialists)
+    public function edit($id)
     {
         //
     }
@@ -76,10 +65,10 @@ class SpecialistsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Specialists  $specialists
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Specialists $specialists)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -87,10 +76,10 @@ class SpecialistsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Specialists  $specialists
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Specialists $specialists)
+    public function destroy($id)
     {
         //
     }

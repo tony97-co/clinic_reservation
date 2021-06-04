@@ -16,11 +16,7 @@ class CreateInterviewsTable extends Migration
         Schema::create('interviews', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->increments('doctor_id')->unsigned()->index();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-
-            $table->increments('patient_id')->unsigned()->index();
-            $table->foreign('patient_id')->references('id')->on('patients');
+          
 
             $table->enum('state',['finished','notstarted','pending'])->default('notstarted');
             $table->timestamps();
