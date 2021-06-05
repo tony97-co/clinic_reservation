@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\Doctors;
+use App\Models\Patient;
+use App\Models\Lap_doctor;
+use App\Models\Clinic;
+use App\Models\Complaint;
+use App\Models\News;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -45,15 +51,53 @@ class User extends Authenticatable
     ];
 
 
+    public function clinic()
+    {
+        return $this->belongsToMany(Clinic::Class);
+    }
+
+
+    public function patient()
+    {
+        return $this->hasOne(Patient::Class);
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::Class);
+    }
+    public function lap_doctor()
+    {
+        return $this->hasOne(lap_doctor::Class);
+    }
+
+
+    public function doctor()
+    {
+        return $this->role == 'doctor';
+    }
+    public function lap_doctor()
+    {
+        return $this->role == 'lapDoctor';
+    }
+    public function admin()
+    {
+        return $this->role == 'admin';
+    }
+    public function superAdmin()
+    {
+        return $this->role == 'superAdmin';
+        }
+
     public function complaint()
     {
-        return $this->hasMany('Complaint::Class');
+        return $this->hasMany(Complaint::Class);
     }
 
 
     public function news()
     {
-        return $this->hasMany('News::Class');
+        return $this->hasMany(News::Class);
     }
 
 

@@ -5,16 +5,14 @@ use App\Models\Doctors;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Specialist extends Model
+class Work_time extends Model
 {
-    protected $table= "specialists";
 
-
+    protected $table= "work_times";
 
     public function doctor(){
 
-        return $this->hasMany(Doctor::Class);
+        return $this->belongsTo('Doctor::Class');
 
     }
-
 }

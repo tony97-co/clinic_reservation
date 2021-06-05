@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComplaintsTable extends Migration
+class CreateLapDoctorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateComplaintsTable extends Migration
      */
     public function up()
     {
-        Schema::create('complaints', function (Blueprint $table) {
+        Schema::create('lap_doctors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('complaint');
+            $table->string('image')->nullable();
+
+            $table->unsignedInteger('clinic_id');
+            $table->foreign('clinic_id')->references('id')->on('clinics');
+
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
 
-            
+
         });
     }
 
@@ -31,6 +34,6 @@ class CreateComplaintsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complaints');
+        Schema::dropIfExists('lap_doctors');
     }
 }

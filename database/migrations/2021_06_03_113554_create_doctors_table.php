@@ -15,12 +15,19 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('phone');
+            $table->string('carrier');
+            $table->string('price');
             $table->string('Degree');
-            $table->timestamps();
+            $table->date('birth');
 
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
+            $table->unsignedInteger('clinic_id');
+            $table->foreign('clinic_id')->references('id')->on('clinics');
+
+            $table->unsignedInteger('specialist_id');
+            $table->foreign('specialist_id')->references('id')->on('specialists');
         });
     }
 
