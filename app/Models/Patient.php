@@ -12,16 +12,27 @@ class Patient extends Model
 {
     protected $table= "patients";
 
-
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'gender',
+        'remember_token',
+        'phone',
+        'blood_type',
+        'chronic_disease',
+        'sensitive',
+        'gentics_disease',
+        'social_status',
+        'bad_happit',
+        'birth'
+    ];
     public function interveiw(){
 
         return $this->hasMany(Interview::Class);
 
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::Class);
-    }
+    
 
 }
