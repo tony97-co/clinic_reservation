@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\api\specialistController;
 use App\Http\Controllers\api\usercontroller;
+use App\Http\Controllers\api\PatientController;
+use App\Http\Controllers\api\clinicsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/specialists',[specialistController::class,'index']);
-Route::post('/user/register',[usercontroller::class,'Register']);
+//patient apis
+Route::post('/Patient/register',[PatientController::class,'Register']);
+Route::post('/Patient/login',[PatientController::class,'login']);
+Route::post('/Patient/{id}/profile',[PatientController::class,'profile']);
+//clinics api
+Route::get('/clinics',[clinicsController::class,'index']);
+//عرض العيادة وجميع الاطباء بها
+Route::get('/clinic/{id}',[clinicsController::class,'show']);
+      
+Route::get('/clinic/{id}/doctors',[clinicsController::class,'clinicDoctors']);

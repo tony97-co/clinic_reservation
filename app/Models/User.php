@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Models\Doctors;
+use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Lap_doctor;
 use App\Models\Clinic;
