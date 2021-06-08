@@ -31,7 +31,7 @@ class PatientController extends Controller
                                 'phone' => $request['phone'],
                                 'email' => $request['email'],
                              
-                                'password' => Hash::make($request['password']),
+                                'password' =>$request['password'],
                                 'remember_token' => Str::random(60),
                             ]);
                             return response()->json(
@@ -60,6 +60,7 @@ class PatientController extends Controller
     public function login(Request $request){
         $Patient = Patient::where('phone', '=', $request->input('phone'))->first();
         if($Patient != null){// for test user not empty
+         
           if($request->input('password') == $Patient->password){
             $token = Str::random(60);// token generation لتوليد توكن لتمييز المستخدمين
             $Patient->forceFill([
