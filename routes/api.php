@@ -43,4 +43,5 @@ Route::get('/clinic/{id}/doctors',[clinicsController::class,'clinicDoctors']);
 Route::get('/specialists',[specialistController::class,'index']);
 
 //******************************************************** */
+//الاطباء عن طريق رقم العيادة والتخصص
 Route::get('/clinic/{clinic}/specialist/{specialist}/doctors',[doctorsController ::class,'byClinicAndSspecialist']);
