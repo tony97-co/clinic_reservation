@@ -44,16 +44,17 @@ class DoctorsController extends Controller
         ]);
            $doctor = new Doctor();
 
+        //    dd($doctor);
+
             // $doctor->name      = $request->name;
             $doctor->carrier          = $request->carrier;
             $doctor->price        = $request->price;
             $doctor->birth          = $request->birth;
             $doctor->degree          = $request->degree;
             $doctor->about          = $request->about;
-
+            $doctor->save();
             dd($doctor);
 
-            $doctor->save();
             return redirect()->route('doctors.show')
             ->with('success','Doctor created successfully.');
 

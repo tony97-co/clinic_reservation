@@ -6,7 +6,8 @@
           <div class="row " id="margin-form">
             <div class="col-md-10 col-sm-12 ">
             <div class="row">
-          <form  action="/doctors" method="post" role="form" enctype="multipart/form-data" class="form-container">
+
+          <form  action="{{ route('doctors.store') }}" method="post" role="form" enctype="multipart/form-data" class="form-container">
              @csrf
 
              <div class="col-md-12">
@@ -14,13 +15,13 @@
                     <form class="form-horizontal">
                         <div class="card-body">
                             <h4 class="card-title">Create New Doctor</h4>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="name" class="col-sm-3 text-end control-label col-form-label">Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="name" placeholder="Name here"
                                     name=""  required autocomplete="name" autofocus>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <label for="carrier" class="col-sm-3 text-end control-label col-form-label">Carrier</label>
                                 <div class="col-sm-9">
@@ -63,7 +64,7 @@
                             </div>
                             <div>
                                 <div class="card-body">
-                                    <button type="button" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </div>
