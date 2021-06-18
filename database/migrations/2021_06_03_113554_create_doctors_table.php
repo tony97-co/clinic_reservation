@@ -17,8 +17,10 @@ class CreateDoctorsTable extends Migration
             $table->increments('id');
             $table->string('carrier');
             $table->string('price');
-            $table->string('Degree');
+            $table->string('degree');
             $table->date('birth');
+            $table->string('about');
+
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

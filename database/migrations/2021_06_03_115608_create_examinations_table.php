@@ -20,6 +20,7 @@ class CreateExaminationsTable extends Migration
             $table->timestamps();
             $table->enum('state',['start','notstart','pending','finish'])->default('notstart');
 
+            
             $table->unsignedInteger('interview_id');
             $table->foreign('interview_id')->references('id')->on('interviews');
 

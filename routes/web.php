@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DoctorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,14 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('layouts.index');
 });
+
+
+Route::resource('doctors', DoctorsController::class);
+
+
+
+
+
+
+
+

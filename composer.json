@@ -12,8 +12,14 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "livewire/livewire": "^2.4"
+        "livewire/livewire": "^2.4",
+        "cartalyst/data-grid-laravel": "^4.0"
+
     },
+
+    "repositories": [
+        { "type": "composer", "url": "https://packages.cartalyst.com" }
+    ],
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
