@@ -13,6 +13,10 @@ use App\Models\Work_time;
 class Doctor extends Model
 {
     protected $table= "doctors";
+    public $timestamps = false;
+
+    protected $fillable = ['carrier', 'about'];
+
 
 
     public function clinic(){

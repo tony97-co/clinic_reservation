@@ -12,10 +12,13 @@ class Clinic extends Model
 {
     protected $table= "clinics";
 
+        protected $fillable = ['name', 'avatar', 'phone'];
+
+
 
     public function user()
     {
-        return $this->hasMany(User::Class);
+        return $this->belongsToMany(User::Class);
     }
 
     public function doctors(){

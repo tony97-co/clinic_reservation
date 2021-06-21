@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clinic;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use PhpParser\Comment\Doc;
@@ -29,7 +30,6 @@ class DoctorsController extends Controller
     public function create()
     {
         $doctor = Doctor::all();
-        // dd($doctor);
         return view('doctors.create' ,compact('doctor'));
     }
 
@@ -37,26 +37,27 @@ class DoctorsController extends Controller
     {
         $request->validate([
 
-                'about' => 'required|unique:about|max:255',
+                'about' => 'required|unique:doctors|max:255',
                 // 'name' =>  'required|max:20',
                 'price' =>  'required|max:5',
                 'carrier' =>  'required|max:50'
         ]);
            $doctor = new Doctor();
-
-        //    dd($doctor);
-
+        //    $doctor->user_id = auth()->user()->id;
             // $doctor->name      = $request->name;
             $doctor->carrier          = $request->carrier;
             $doctor->price        = $request->price;
             $doctor->birth          = $request->birth;
             $doctor->degree          = $request->degree;
             $doctor->about          = $request->about;
-            $doctor->save();
-            dd($doctor);
 
-            return redirect()->route('doctors.show')
-            ->with('success','Doctor created successfully.');
+            $doctor->save();
+            // dd($doctor);
+            return redirect('/doctors/show')->with('status','تم إدخال البيانات ');
+
+
+            // return redirect()->route('doctors.show')
+            // ->with('success','Doctor created successfully.');
 
    }
 

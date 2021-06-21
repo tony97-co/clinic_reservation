@@ -62,15 +62,6 @@ class User extends Authenticatable
         return $this->hasOne(Patient::Class);
     }
 
-    public function doctor()
-    {
-        return $this->hasOne(Doctor::Class);
-    }
-    public function lap_doctor()
-    {
-        return $this->hasOne(lap_doctor::Class);
-    }
-
 
     public function doctor()
     {
