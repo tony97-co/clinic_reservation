@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\clincResource;
 class clinicsController extends Controller
 {
@@ -17,7 +18,7 @@ class clinicsController extends Controller
         }
         public function show($id){
                 $clinic = Clinic::find($id);
-if($clinic == null)
+        if($clinic == null)
                 return response()->json([
                   'error'=> true,
                   'message'=>'clinic not found' ,  //الهاتف غير صحيح
@@ -51,4 +52,26 @@ if($clinic == null)
               }
 
         }
+
+        public function search(Request $request){
+          $name = $request->name;
+         
+         $clinic = DB::table('clinics')->where('name', $name)->get();
+         if($clinic == null){
+         return response()->json([
+           'error'=> true,
+           'message'=>'there is no clinic' ,  
+           'code'=> 1  ],
+             404);}
+       else{
+          
+         
+         return response()->json([
+         'error'=>false,
+         'message'=>'all clinics',
+         'data'=>$clinic],200);
+       }
+
+           }
 }
+

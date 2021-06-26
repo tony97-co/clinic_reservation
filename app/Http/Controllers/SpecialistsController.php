@@ -14,21 +14,8 @@ class SpecialistsController extends Controller
      */
     public function index()
     {
-        $clinics = clinic::all(); //Get All
-        if (count($clinics) > 0) { // التأكد من وجود منتجات 
-             return response()->json([
-                'error'=>false ,
-                'message'=>'' ,
-                'data'=>$clinics],
-                    200); // رسالة نجاح // يوجد منتجات حاليا
-        }else
-            return response()->json([
-                'error'=>true , 
-                'message'=>'Sorry, There Are No Products Currently' ,
-                'code'=> 4],
-                    404);
+       
     }
-
     /**
      * Show the form for creating a new resource.
      *

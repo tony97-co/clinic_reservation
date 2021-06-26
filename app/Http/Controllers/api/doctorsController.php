@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Http\Resources\doctorResource;
 
 class doctorsController extends Controller
 {
@@ -28,5 +29,16 @@ class doctorsController extends Controller
                 'data'=>$doctors],200);
               }
         }
+       public function show($id){
+
+         $doctor = Doctor::find($id);
+       return new doctorResource($doctor);
        
+       }
+       public function search(){
+         $name = 'maca';
+      
+      $interview = DB::table('clinics')->where('name', $name)->get();
+      dd($interview);
+       }
 }  
