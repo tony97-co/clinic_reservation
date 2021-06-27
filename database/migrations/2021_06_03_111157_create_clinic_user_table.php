@@ -19,7 +19,6 @@ class CreateClinicUserTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('clinic_id');
             $table->foreign('clinic_id')->references('id')->on('clinics');
-            $table->timestamps();
 
         });
 
