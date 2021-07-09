@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clinic;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class ClinicsController extends Controller
 {
     /**
@@ -15,7 +15,10 @@ class ClinicsController extends Controller
      */
     public function index()
     {
+        
+     $clinic = Clinic::all();
 
+     return view('clinics.index')->with('clinics',$clinic);
     }
 
     /**
@@ -37,32 +40,25 @@ class ClinicsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
 
-                'clinic_name' => 'required|unique:clinics',
-                'location' =>  'required',
-                'email' =>  'required|unique:users',
-                'passsword' =>  'required|max:50'
-        ]);
-           $clinic = new Clinic();
-        //    $doctor->user_id = auth()->user()->id;
-            // $doctor->name      = $request->name;
-            $clinic->clinic_name          = $request->clinic_name;
-            $clinic->location        = $request->location;
-            $clinic->birth          = $request->birth;
-            $clinic->phone          = $request->phone;
-            $clinic->about          = $request->about;
+        $user =  new User();
+        $user->name =  $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 'clinicAdmin';
+         $user->save();
 
-            $user = new User();
-            $user->name          = $request->name;
-            $user->email        = $request->location;
-            $user->password          = $request->birth;
-            $user->role = 'superAdmin';
-            $user->save();
 
-            $user->clinic()->attach($clinic->$id);
-            return redirect('/doctors/show')->with('status','تم إدخال البيانات ');
+         $clinic = new Clinic();
 
+        $clinic->clinic_name = $request->name ;
+        $clinic->location = $request->location ;
+        $clinic->phone = $request->phone ;
+        $clinic->Address = $request->address ;
+        $clinic->save();
+
+        $user->clinics()->attach($clinic->id);
+        return redirect('/clinics');
     }
 
     /**

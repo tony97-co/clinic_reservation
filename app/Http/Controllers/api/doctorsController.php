@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Http\Resources\doctorResource;
+use App\Http\Resources\userResource;
 
 class doctorsController extends Controller
 {
@@ -35,10 +36,24 @@ class doctorsController extends Controller
        return new doctorResource($doctor);
        
        }
-       public function search(){
-         $name = 'maca';
+       public function search(Request $request){
       
-      $interview = DB::table('clinics')->where('name', $name)->get();
-      dd($interview);
+         $name = 'mohamed';
+        $doctor = DB::table('users')->where([
+          ['name','=', $name],
+          ['role','=','doctor'],
+      ])->get();
+
+        if($doctor == null)
+                return response()->json([
+                  'error'=> true,
+                  'message'=>'there is no doctors' ,  
+                  'code'=> 1  ],
+                    404);
+              else{
+                
+                return new userResource($doctor);
+              }
        }
+
 }  

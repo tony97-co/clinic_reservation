@@ -9,10 +9,10 @@ class Work_time extends Model
 {
 
     protected $table= "work_times";
-
+    public $timestamps = false;
     public function doctor(){
 
-        return $this->belongsTo('Doctor::Class');
+        return $this->belongsTo(Doctor::Class);
 
     }
 }

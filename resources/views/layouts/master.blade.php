@@ -267,10 +267,10 @@
                                                 class="hide-menu">Doctors </span></a>
                                         <ul aria-expanded="false" class="collapse  first-level">
                                             <li class="sidebar-item"><a href="/doctors/create" class="sidebar-link"><i
-                                                        class="mdi mdi-note-outline"></i><span class="hide-menu"> Create new
+                                                        class="mdi mdi-note-outline"></i><span class="hide-menu">  Add Doctor
                                                     </span></a></li>
                                             <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
-                                                        class="mdi mdi-note-plus"></i><span class="hide-menu"> Show Doctors
+                                                        class="mdi mdi-note-plus"></i><span class="hide-menu"> ALL Doctors
                                                     </span></a></li>
                                         </ul>
                                     </li>
@@ -279,10 +279,10 @@
                                             class="hide-menu">Clinics </span></a>
                                     <ul aria-expanded="false" class="collapse  first-level">
                                         <li class="sidebar-item"><a href="/clinics/create"  class="sidebar-link"><i
-                                                    class="mdi mdi-note-outline"></i><span class="hide-menu"> Create new
+                                                    class="mdi mdi-note-outline"></i><span class="hide-menu">Add Clinic
                                                 </span></a></li>
                                         <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
-                                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Show clinics
+                                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> ALL clinics
                                                 </span></a></li>
                                     </ul>
                                 </li>

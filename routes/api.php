@@ -33,8 +33,8 @@ Route::get('/clinics',[clinicsController::class,'index']);
 Route::get('/clinic/{id}',[clinicsController::class,'show']);
       //عرض الاطبا حسب قم العيادة
 Route::get('/clinic/{id}/doctors',[clinicsController::class,'clinicDoctors']);
-//البحث عن عيادة عن طريق الاسم
-Route::post('/doctor/search',[clinicsController::class,'doctor']);
+
+
 //بحث المستشفى عن طريق الاسم
 Route::post('/search/clinic',[clinicsController::class,'search']);
 //******************************************************** */
@@ -51,3 +51,5 @@ Route::get('/specialists',[specialistController::class,'index']);
 Route::get('/clinic/{clinic}/specialist/{specialist}/doctors',[doctorsController ::class,'byClinicAndSspecialist']);
 //الطبيب مع اسم التخصص والعيادة
 Route::get('/doctor/{id}',[doctorsController ::class,'show']);
+//بحث  الدكتور  عن طريق الاسم
+Route::get('/search/doctor',[doctorsController::class,'search']);

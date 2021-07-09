@@ -25,5 +25,7 @@
 <link href="{{asset('../../assets/libs/jquery-steps/jquery.steps.css')}}" rel="stylesheet">
     <link href="{{asset('../../assets/libs/jquery-steps/steps.css')}}" rel="stylesheet">
     <link href="{{asset('../../dist/css/style.min.css')}}" rel="stylesheet">
+
+
     @livewireStyles
 

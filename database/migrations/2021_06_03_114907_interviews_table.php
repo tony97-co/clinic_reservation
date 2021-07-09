@@ -23,6 +23,7 @@ class InterviewsTable extends Migration
 
         $table->unsignedInteger('patient_id');
         $table->foreign('patient_id')->references('id')->on('patients');
+        
     });
 
 

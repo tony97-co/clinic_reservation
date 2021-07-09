@@ -15,13 +15,14 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('carrier');
-            $table->string('price');
-            $table->string('degree');
+            $table->string('carrier')->nullable();
+            $table->string('price')->nullable();
+            $table->string('qualifications');
             $table->date('birth');
-            $table->string('about');
-
-
+            $table->string('address')->nullable();
+            $table->string('fellowship')->nullable();
+            $table->string('image')->nullable();
+            $table->string('phone');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
@@ -30,6 +31,7 @@ class CreateDoctorsTable extends Migration
 
             $table->unsignedInteger('specialist_id');
             $table->foreign('specialist_id')->references('id')->on('specialists');
+            $table->timestamps();
         });
     }
 

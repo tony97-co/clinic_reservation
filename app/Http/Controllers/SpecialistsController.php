@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Specialists;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
 use App\Models\clinic;
 class SpecialistsController extends Controller
@@ -13,8 +13,8 @@ class SpecialistsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-       
+    {   $Specialists = Specialist::all();
+       return view('specialties.index')->with('Specialists',$Specialists);
     }
     /**
      * Show the form for creating a new resource.
@@ -23,7 +23,8 @@ class SpecialistsController extends Controller
      */
     public function create()
     {
-        //
+     
+        return view('specialties.create');
     }
 
     /**
@@ -34,7 +35,13 @@ class SpecialistsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Specialists = new Specialist();
+        $Specialists->name = $request->name;
+        $Specialists->des = $request->Description;
+        $Specialists->save();
+
+        return redirect('/specialties');
+
     }
 
     /**

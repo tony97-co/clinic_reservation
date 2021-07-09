@@ -18,17 +18,18 @@ use App\Http\Controllers\DoctorsController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('layouts.index');
+Route::get('/h', function () {
+    return view('superAdmin.home');
 });
 
 
-Route::resource('doctors', DoctorsController::class);
-Route::resource('clinics', ClinicsController::class);
+Route::resource('clinics', 'ClinicsController');
+Route::resource('doctors', 'DoctorsController');
 
-
-
-
+//specialties
+Route::get('/specialties/create', 'SpecialistsController@create');
+Route::get('/specialties', 'SpecialistsController@index');
+Route::post('/specialties', 'SpecialistsController@store');
 
 
 

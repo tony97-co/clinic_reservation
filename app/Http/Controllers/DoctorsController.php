@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Clinic;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use PhpParser\Comment\Doc;
-
+use App\Models\Work_time;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 class DoctorsController extends Controller
 {
     /**
@@ -35,25 +37,43 @@ class DoctorsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $user =  new User();
+        $user->name =  $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 'doctor';
+         $user->save();
 
-                'about' => 'required|unique:doctors|max:255',
-                // 'name' =>  'required|max:20',
-                'price' =>  'required|max:5',
-                'carrier' =>  'required|max:50'
-        ]);
            $doctor = new Doctor();
-        //    $doctor->user_id = auth()->user()->id;
-            // $doctor->name      = $request->name;
-            $doctor->carrier          = $request->carrier;
-            $doctor->price        = $request->price;
-            $doctor->birth          = $request->birth;
-            $doctor->degree          = $request->degree;
-            $doctor->about          = $request->about;
-
+           $doctor->birth = $request->birth;
+           $doctor->phone = $request->phone;
+           $doctor->address = $request->address;
+           $doctor->qualifications = $request->qualifications;  
+           $doctor->price = $request->diagnosis_prise;
+           $doctor->specialist_id = 1;
+           $doctor->user_id = $user->id;
+           $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+           
+           $doctor->clinic_id = $clinic_id[0];
             $doctor->save();
-            // dd($doctor);
-            return redirect('/doctors/show')->with('status','تم إدخال البيانات ');
+           
+      for($i = 0;$i < 7;$i++)
+      {                      
+        if($request->frome[$i] === null)
+           {
+            $a = $i;
+          }else
+             {  
+             $work_time = new Work_time();
+             $work_time->from  = $request->frome[$i];
+             $work_time->to  = $request->to[$i];
+             $work_time->day  = $request->day[$i];
+             $work_time->doctor_id  =  $doctor->id;
+                $work_time->save();
+              }   
+            }
+         return view('home');
+
 
 
             // return redirect()->route('doctors.show')

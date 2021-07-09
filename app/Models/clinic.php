@@ -16,7 +16,7 @@ class Clinic extends Model
 
 
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::Class);
     }

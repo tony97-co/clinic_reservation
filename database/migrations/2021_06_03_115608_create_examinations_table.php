@@ -17,7 +17,7 @@ class CreateExaminationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('result')->nullable();
-            $table->timestamps();
+            
             $table->enum('state',['start','notstart','pending','finish'])->default('notstart');
 
             
@@ -26,6 +26,7 @@ class CreateExaminationsTable extends Migration
 
             $table->unsignedInteger('clinic_id');
             $table->foreign('clinic_id')->references('id')->on('clinics');
+            $table->timestamps();
         });
     }
 
