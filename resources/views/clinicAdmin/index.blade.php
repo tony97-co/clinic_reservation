@@ -248,7 +248,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                @include('superAdmin.sideNav')
+                @include('clinicAdmin.sideNav')
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->

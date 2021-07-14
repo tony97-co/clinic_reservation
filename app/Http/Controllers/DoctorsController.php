@@ -16,12 +16,17 @@ class DoctorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-        public function index()
-    {
-        $doctor = Doctor::latest()->paginate(5);
 
-        return view('doctors.index',compact('doctor'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        public function index(){
+  //doctor in the auth clinic
+            $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+            $id = $clinic_id[0];
+        
+            $doctor = Doctor::where('clinic_id', $id)->get();
+         
+                  
+        return view('doctors.index')->with('doctors',$doctor);
+            
     }
 
     /**
@@ -53,7 +58,6 @@ class DoctorsController extends Controller
            $doctor->specialist_id = 1;
            $doctor->user_id = $user->id;
            $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
-           
            $doctor->clinic_id = $clinic_id[0];
             $doctor->save();
            
@@ -72,7 +76,14 @@ class DoctorsController extends Controller
                 $work_time->save();
               }   
             }
-         return view('home');
+            $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+            $id = $clinic_id[0];
+        
+            $doctors = Doctor::where('clinic_id', $id)->get();
+         
+                  
+        return view('doctors.index')->with('doctors',$doctors);
+            
 
 
 

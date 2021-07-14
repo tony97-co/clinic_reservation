@@ -79,11 +79,13 @@ class User extends Authenticatable
     {
         return $this->role == 'admin';
     }
-    public function superAdmin()
+    public function IsSuperAdmin()
     {
         return $this->role == 'superAdmin';
         }
-
+   public function IsClinicAdmin(){
+    return $this->role == 'clinicAdmin';
+      }
     public function complaint()
     {
         return $this->hasMany(Complaint::Class);

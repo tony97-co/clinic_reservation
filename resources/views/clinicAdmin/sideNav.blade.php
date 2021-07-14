@@ -11,7 +11,7 @@
                 <li class="sidebar-item"><a href="/doctors/create " class="sidebar-link"><i
                     class="mdi mdi-account-plus"></i><span class="hide-menu">  Add Doctor
                         </span></a></li>
-                <li class="sidebar-item"><a href="/clinics " class="sidebar-link"><i class="fas fa-user-md"></i><span class="hide-menu">  All Doctors
+                <li class="sidebar-item"><a href="/doctors " class="sidebar-link"><i class="fas fa-user-md"></i><span class="hide-menu">  All Doctors
                         </span></a></li>
             </ul>
         </li>
@@ -33,7 +33,7 @@
         href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-switch"></i><span
             class="hide-menu">Lap Doctors </span></a>
     <ul aria-expanded="false" class="collapse  first-level">
-        <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
+        <li class="sidebar-item"><a href=" /lapDoctors/create " class="sidebar-link"><i
                     class="mdi mdi-account-plus"></i><span class="hide-menu">  Add Lapdoctor
                 </span></a></li>
         <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i

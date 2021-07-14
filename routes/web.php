@@ -25,7 +25,7 @@ Route::get('/h', function () {
 
 Route::resource('clinics', 'ClinicsController');
 Route::resource('doctors', 'DoctorsController');
-
+Route::resource('lapDoctors', 'lapDoctorsController');
 //specialties
 Route::get('/specialties/create', 'SpecialistsController@create');
 Route::get('/specialties', 'SpecialistsController@index');
