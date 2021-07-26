@@ -15,7 +15,10 @@ class InterviewsTable extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
         $table->increments('id');
-        $table->timestamps();
+        $table->string('date');
+        $table->string('name');
+        $table->string('age');
+        $table->string('tirn');
         $table->enum('state',['finished','notstarted','pending'])->default('notstarted');
 
         $table->unsignedInteger('doctor_id');
@@ -23,7 +26,7 @@ class InterviewsTable extends Migration
 
         $table->unsignedInteger('patient_id');
         $table->foreign('patient_id')->references('id')->on('patients');
-        
+        $table->timestamps();
     });
 
 

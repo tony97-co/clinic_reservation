@@ -15,20 +15,7 @@
                         </span></a></li>
             </ul>
         </li>
-        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-            href="javascript:void(0)" aria-expanded="false"><i class="far fa-calendar"></i><span
-                class="hide-menu">Reservations</span></a>
-        <ul aria-expanded="false" class="collapse  first-level">
-            <li class="sidebar-item"><a href="/specialties/create" class="sidebar-link"><i class="fas fa-calendar-plus"></i><span class="hide-menu"> New
-                    </span></a></li>
-            <li class="sidebar-item"><a href="/specialties" class="sidebar-link"><i class="fad fa-calendar-minus"></i><span class="hide-menu">  Pinnding
-                    </span></a></li>
-                    <li class="sidebar-item"><a href="/specialties" class="sidebar-link"><i class="far fa-calendar-check"></i><span class="hide-menu">  Finished
-                    </span></a></li>
-                    <li class="sidebar-item"><a href="/specialties" class="sidebar-link"><i class="fas fa-calendar-times"></i><span class="hide-menu">  Cancelled                    </span></a></li>
-        </ul>
-    </li>
-
+    
     <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
         href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-switch"></i><span
             class="hide-menu">Lap Doctors </span></a>
@@ -36,27 +23,29 @@
         <li class="sidebar-item"><a href=" /lapDoctors/create " class="sidebar-link"><i
                     class="mdi mdi-account-plus"></i><span class="hide-menu">  Add Lapdoctor
                 </span></a></li>
-        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
+        <li class="sidebar-item"><a href="/lapDoctors" class="sidebar-link"><i
                     class="mdi mdi-account-star-variant"></i><span class="hide-menu">  All lapdoctors
                 </span></a></li>
     </ul>
    </li>
+   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+    href="/clinic/interviews" aria-expanded="false"><i class="far fa-calendar"></i><span class="hide-menu">Reservations</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                 href="pages-buttons.html" aria-expanded="false"><i class="fas fa-procedures"></i><span class="hide-menu"> patients</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="pages-buttons.html" aria-expanded="false"><i class="fas fa-prescription-bottle"></i><span class="hide-menu"> Examinations</span></a></li>
+                        href="/Examinations" aria-expanded="false"><i class="fas fa-prescription-bottle"></i><span class="hide-menu"> Examinations</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-line"></i><span
                     class="hide-menu">reports </span></a>
             <ul aria-expanded="false" class="collapse  first-level">
               
-                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+                <li class="sidebar-item"><a href="/clinic/doctors/report" class="sidebar-link"><i
                             class="mdi mdi-chart-line"></i><span class="hide-menu"> Doctors
                              </span></a></li>
              <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
                                 class="mdi mdi-chart-line"></i><span class="hide-menu"> patients
                                  </span></a></li>
-            <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+            <li class="sidebar-item"><a href="/clinic/interviews/report" class="sidebar-link"><i
                               class="mdi mdi-chart-line"></i><span class="hide-menu"> Reservations
                                      </span></a></li>
             </ul>

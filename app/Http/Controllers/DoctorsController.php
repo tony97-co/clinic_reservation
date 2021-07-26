@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use PhpParser\Comment\Doc;
 use App\Models\Work_time;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 class DoctorsController extends Controller
@@ -19,6 +20,7 @@ class DoctorsController extends Controller
 
         public function index(){
   //doctor in the auth clinic
+      
             $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
             $id = $clinic_id[0];
         
@@ -43,7 +45,7 @@ class DoctorsController extends Controller
     public function store(Request $request)
     {
         $user =  new User();
-        $user->name =  $request->name;
+        $user->user_name =  $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = 'doctor';

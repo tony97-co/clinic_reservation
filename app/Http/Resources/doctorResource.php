@@ -16,14 +16,16 @@ class doctorResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            "carrier" => $this->carrier,
+            "address" => $this->address,
             "price" => $this->price,
-            "degree" => $this->degree,
+            "start_date" => $this->created_at->diffForHumans(),
+            "qualifications" => $this->qualifications,
             "birth" =>$this->birth,
             "about" => $this->about ,
             "user"  => $this->user,
             "specialist" => $this->specialist,
-            "clinic" => $this->clinic
+            "clinic" => $this->clinic,
+            "interviews_count" => $this->interview->count()
         ];
 
     }

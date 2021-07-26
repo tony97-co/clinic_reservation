@@ -30,15 +30,25 @@ Route::resource('lapDoctors', 'lapDoctorsController');
 Route::get('/specialties/create', 'SpecialistsController@create');
 Route::get('/specialties', 'SpecialistsController@index');
 Route::post('/specialties', 'SpecialistsController@store');
+//interviews
 
-
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/clinic/interviews', 'InterviewController@clinicInterviews');
 
 Auth::routes();
+//reports for clinic
+//********************************************** */
+//the blade for doctors report
+Route::get('/clinic/doctors/report', 'ClinicsController@clinicDoctorsReport');
+// the api for interviews based on web auth clinic user id
+Route::get('/d', 'ClinicsController@d');
+//the blade interviews report
+Route::get('/clinic/interviews/report', 'InterviewController@clinicInterviewsreport');
+// the api for interviews based on web auth clinic user id
+Route::get('/ahmed', 'InterviewController@m');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//
+Route::get('{any}',function(){
+    return view('Examinations.index');
+})->where('any','.*');

@@ -4,11 +4,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title mb-0">Static Table</h5>
+                <h5 class="card-title mb-0"> Specialties</h5>
             </div>
             <table class="table">
                 <thead>
-                    <tr style="background-color: rgb(26, 2, 4); color:#ffff">
+                    <tr style="background-color: rgb(0, 0, 0); color:#ffff">
                         <th scope="col" style=" color:#ffff">id</th>
                         <th scope="col"  style=" color:#ffff">Name</th>
                         <th scope="col"  style=" color:#ffff">Description</th>

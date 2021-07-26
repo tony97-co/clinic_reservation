@@ -16,7 +16,7 @@ class CreateSpecialistsTable extends Migration
         Schema::create('specialists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('des');
-            $table->string('name');
+            $table->string('specalty_name');
             $table->timestamps();
 
         });

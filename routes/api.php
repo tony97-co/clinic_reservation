@@ -1,9 +1,12 @@
 <?php
 use App\Http\Controllers\api\specialistController;
+use App\Http\Controllers\api\web\clinicAdminController;
 use App\Http\Controllers\api\usercontroller;
 use App\Http\Controllers\api\PatientController;
 use App\Http\Controllers\api\clinicsController;
 use App\Http\Controllers\api\doctorsController ;
+use App\Http\Controllers\api\interviewsController ;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +41,7 @@ Route::get('/clinic/{id}/doctors',[clinicsController::class,'clinicDoctors']);
 //بحث المستشفى عن طريق الاسم
 Route::post('/search/clinic',[clinicsController::class,'search']);
 //******************************************************** */
-
+Route::post('/interviews',[interviewsController::class,'store']);
 
 //التخصصات
 
@@ -53,3 +56,8 @@ Route::get('/clinic/{clinic}/specialist/{specialist}/doctors',[doctorsController
 Route::get('/doctor/{id}',[doctorsController ::class,'show']);
 //بحث  الدكتور  عن طريق الاسم
 Route::get('/search/doctor',[doctorsController::class,'search']);
+//************************************************************************************************** */
+//****************dashbord**********************************
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/ahmed',[clinicAdminController::class,'interviewsReport']);
+});

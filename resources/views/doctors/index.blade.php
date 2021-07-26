@@ -3,7 +3,7 @@
 <div class="col-12">
   <div class="card">
       <div class="card-body">
-          <h5 class="card-title">Basic Datatable</h5>
+          <h5 class="card-title">Doctors</h5>
           <div class="table-responsive">
               <table id="zero_config" class="table table-striped table-bordered">
                   <thead>
@@ -24,10 +24,10 @@
                           
                       
                       <tr>
-                          <td>{{$doctor->user->name}} </td>
+                          <td>{{$doctor->user->user_name}} </td>
                           <td> no image</td>
                           <td>{{$doctor->address}}</td>
-                          <td>{{$doctor->specialist->name}}</td>
+                          <td>{{$doctor->specialist->specalty_name}}</td>
                           <td>{{$doctor->created_at}}</td>
                           <td>{{$doctor->price}}</td>
                           <td><button class="btn btn-primary btn-sm" onclick="test({{$doctor->work_time}})">sohw</button></td>
@@ -36,79 +36,7 @@
                       </tr>
                       
                       @endforeach
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-
-                        <td>$320,800</td>
-                        <td>61</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
                     
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                      
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                        <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                      
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                       
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                        <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                      
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                    
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
                     <tr>
                         <td>Tiger Nixon</td>
                         <td>System Architect</td>

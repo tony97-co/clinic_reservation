@@ -36,7 +36,7 @@ class SpecialistsController extends Controller
     public function store(Request $request)
     {
         $Specialists = new Specialist();
-        $Specialists->name = $request->name;
+        $Specialists->specalty_name = $request->name;
         $Specialists->des = $request->Description;
         $Specialists->save();
 

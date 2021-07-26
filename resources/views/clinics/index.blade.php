@@ -4,11 +4,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title mb-0">Static Table</h5>
+                <h5 class="card-title mb-0">All Clinics</h5>
             </div>
             <table class="table">
                 <thead>
-                    <tr style="background-color: rgb(26, 2, 4); color:#ffff">
+                    <tr style="background-color: rgb(0, 0, 0); color:#ffff">
                      
                         <th scope="col"  style=" color:#ffff">Name</th>
                         <th scope="col"  style=" color:#ffff">location </th>
@@ -32,7 +32,7 @@
                         <td>{{$clinic->phone}}</td>
                        
                         <td>no image</td>
-                        <td><a href=""><button type="button" class="btn btn-primary btn-sm">{{$clinic->doctors->count()}}</button></a></td>
+                        <td><a href=""><button style="background-color: #27a9e3" type="button" class="btn  btn-sm">{{$clinic->doctors->count()}}</button></a></td>
                         <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
                     </tr>
                     @endforeach

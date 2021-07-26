@@ -15,9 +15,9 @@ class CreateExaminationsTable extends Migration
     {
         Schema::create('examinations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('examination_name');
             $table->string('result')->nullable();
-            
+            $table->string('examination_price')->nullable();
             $table->enum('state',['start','notstart','pending','finish'])->default('notstart');
 
             

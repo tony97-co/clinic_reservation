@@ -9,7 +9,16 @@ use App\Models\Examination;
 class Interview extends Model
 {
 
-
+    protected $fillable = [
+        'name',
+        'age',
+        'date',
+        'tirn',
+        'state',
+        'doctor_id',
+        'patient_id'
+     
+    ];
 
     public function patient()
     {

@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Clinic;
 use App\Models\User;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon as time;
+use Carbon\Carbon;
+use App\Http\Resources\doctorResource;
 class ClinicsController extends Controller
 {
     /**
@@ -42,7 +47,7 @@ class ClinicsController extends Controller
     {
 
         $user =  new User();
-        $user->name =  $request->name;
+        $user->user_name =  $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = 'clinicAdmin';
@@ -111,5 +116,27 @@ class ClinicsController extends Controller
     public function destroy($id)
     {
         //
+    }
+     /**
+     * the blade for doctors reports
+     *
+    
+     */
+    public function clinicDoctorsReport()
+    {
+        return view('clinicAdmin.reports.doctorsReport');
+    }
+     /**
+     * the api for doctors in vue js report 
+     *
+    
+     */
+    public function d(Request $request)
+    {
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $doctors = Doctor::where('clinic_id','=',$id)->get();
+        return doctorResource::collection($doctors);
+    
     }
 }

@@ -56,7 +56,7 @@ class clinicsController extends Controller
         public function search(Request $request){
           $name = $request->name;
          
-         $clinic = DB::table('clinics')->where('name', $name)->get();
+         $clinic = DB::table('clinics')->where('clinic_name', $name)->get();
          if($clinic == null){
          return response()->json([
            'error'=> true,

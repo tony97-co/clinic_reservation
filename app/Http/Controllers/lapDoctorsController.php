@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class lapDoctorsController extends Controller
 {
     /**
@@ -13,7 +14,11 @@ class lapDoctorsController extends Controller
      */
     public function index()
     {
-        //
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $clinic = Clinic::find($id);
+ 
+    return view('lapdoctors.index')->with('clinic',$clinic);
     }
 
     /**
@@ -35,7 +40,32 @@ class lapDoctorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lapdoctor = new User();
+        $lapdoctor->user_name = $request->name;
+        $lapdoctor->email = $request->email;
+        $lapdoctor->phone = $request->phone;
+        $lapdoctor->qualifications = $request->qualifications;
+        $lapdoctor->address = $request->Address;
+        $lapdoctor->password = Hash::make($request->password);
+        if( $request->hasfile('image')){
+            $file = $request->file('image');
+            
+            $ext = $file->getClientOriginalExtension() ;
+            $filename = 'image' . '_' . time() . '.' . $ext ;
+            $file->storeAs('public/image' ,$filename); 
+            $lapdoctor->image = $filename;
+             }else{
+                 dd($request->all());
+             }
+            
+        $lapdoctor->role = 'lapDoctor';
+        $lapdoctor->save();
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $lapdoctor->clinics()->attach($id);
+        return redirect('/lapDoctors');
+
+        
     }
 
     /**

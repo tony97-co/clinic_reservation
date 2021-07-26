@@ -23,7 +23,7 @@ class usercontroller extends Controller
         $user = User::where('phone', '=', $request->input('phone'))->first();
         if($user == null){
                 $new_user = User::create([ //انشاء مستخدم جديد
-                                'name' => $request['name'],
+                                'user_name' => $request['name'],
                                 'phone' => $request['phone'],
                                 'email' => $request['email'],
                                 'role' => 'user',

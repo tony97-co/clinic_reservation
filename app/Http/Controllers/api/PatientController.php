@@ -27,7 +27,7 @@ class PatientController extends Controller
         $Patient = Patient::where('phone', '=', $request->input('phone'))->first();
         if($Patient == null){
                 $new_user = Patient::create([ //انشاء مستخدم جديد
-                                'name' => $request['name'],
+                                'patient_name' => $request['name'],
                                 'phone' => $request['phone'],
                                 'email' => $request['email'],
                              
