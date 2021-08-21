@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Resources\doctorResource;
 use App\Models\Clinic;
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\interview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon as time;
 use Carbon\Carbon;
-use App\Http\Resources\doctorResource;
 class ClinicsController extends Controller
 {
     /**
@@ -131,12 +131,63 @@ class ClinicsController extends Controller
      *
     
      */
-    public function d(Request $request)
-    {
-        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
-        $id = $clinic_id[0];
-        $doctors = Doctor::where('clinic_id','=',$id)->get();
-        return doctorResource::collection($doctors);
-    
+  
+public function s(Request $request){
+
+    $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+    $id = $clinic_id[0];
+    $doctors = Doctor::with('user','specialist')->where('clinic_id','=',$id)->get();
+    foreach($doctors as $doctor)
+           {
+     $doctor->start_date =    $doctor->created_at->diffForHumans();  
+     $i = $doctor->id;
+     $interviews_count = interview::where('doctor_id',$i)->count();
+     $doctor->interview_count = $interviews_count;
+   
     }
+   
+     
+   if($request->date){
+
+    $to = time::today()->format('Y-m-d');
+    $from ;
+   switch ($request->date){
+                    case 'today':
+                        $from = time::today()->format('Y-m-d');
+                        // 19-10-2020
+                        // 19-10-2020
+                        break;
+                    case 'yesterday':
+                        $from = date('Y-m-d',strtotime("-1 days"));
+                        // 18-10-2020
+                        //19-10-2020
+                        break;
+                   
+                    case 'month':
+                        $from = time::today()->format('Y-m-1');
+                        // 1-10-2020
+                        //19-10-2020
+                        break;  
+                    case 'year':
+                        $from = time::now()->subYears(1)->format('Y-m-d');
+                        break;
+                   
+                    default:
+                        $from = time::today()->format('Y-m-d');
+                        break;
+                }
+  
+   $doctors = Doctor::with('user')->where('clinic_id','=',$id)->get();
+    foreach($doctors as $doctor)
+           {
+            $doctor->start_date =    $doctor->created_at->diffForHumans();  
+     $i = $doctor->id;
+     $interviews_count = interview::where('doctor_id',$i)->whereDate('date','>=', $from)->whereDate('date','<=', $to)->count();
+     $doctor->interview_count = $interviews_count;
+    }
+
+   }
+   return response()->json($doctors);
+
+                   }
 }

@@ -41,6 +41,7 @@ Route::get('/clinic/{id}/doctors',[clinicsController::class,'clinicDoctors']);
 //بحث المستشفى عن طريق الاسم
 Route::post('/search/clinic',[clinicsController::class,'search']);
 //******************************************************** */
+//تسجيل المقابلة الجديدة وارجع الترتيب للمريض 
 Route::post('/interviews',[interviewsController::class,'store']);
 
 //التخصصات
@@ -55,7 +56,7 @@ Route::get('/clinic/{clinic}/specialist/{specialist}/doctors',[doctorsController
 //الطبيب مع اسم التخصص والعيادة
 Route::get('/doctor/{id}',[doctorsController ::class,'show']);
 //بحث  الدكتور  عن طريق الاسم
-Route::get('/search/doctor',[doctorsController::class,'search']);
+Route::post('/search/doctor',[doctorsController::class,'search']);
 //************************************************************************************************** */
 //****************dashbord**********************************
 Route::group(['middleware' => 'web'], function () {

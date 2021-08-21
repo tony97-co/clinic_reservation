@@ -5,7 +5,22 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title mb-0">Doctors Report</h5>
-             
+                <div id="date">
+                    <div>
+                     
+ <select class="select2 form-select shadow-none col-md-5"
+                                            style="width: 20%; height:36px; position: absolute;
+    left: 800px; " v-model="sellectedDate">
+                       <option value="today">today</option>
+                         <option value="yesterday">yesterday</option>
+                           <option value="month">this month</option>
+                           <option value="year" >this year</option>
+                   </select>
+                    </div>
+                  
+                    </div>
+
+          
 
             </div>
             <table class="table">
@@ -32,7 +47,7 @@
                                        <td>{{doctor.qualifications}}</td>
                                      <td>{{doctor.start_date}}</td>
                                       <td>{{doctor.price}}</td>
-                                    <td>{{doctor.interviews_count}}</td>
+                                    <td>{{doctor.interview_count}}</td>
                                     
                                   
                                      
@@ -75,7 +90,7 @@ this.getdoctors();
 
                 }
                 ).then(res => {
-                    this.doctors = res.data.data;
+                    this.doctors = res.data;
                 }).catch(error => {
                     console.log(console.error);
                 });
@@ -85,6 +100,22 @@ this.getdoctors();
 </script>
 
 <style>
-
+#date{
+    position: relative;
+    padding: 7px;
+  
+}
+select{
+    
+    padding: 7px;
+    width: 150px;
+    border-block-color:#080;
+    border-block-start-color: chartreuse;
+    border-block-start-width: 2px;
+}
+option{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
 
 </style>

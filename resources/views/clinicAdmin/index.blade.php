@@ -4,6 +4,7 @@
 <head>
  <!-- css -->
     @include('layouts.css')
+    <title>Clinic Admin</title>
 </head>
 
 <body>

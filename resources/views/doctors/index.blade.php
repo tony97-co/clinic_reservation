@@ -25,14 +25,14 @@
                       
                       <tr>
                           <td>{{$doctor->user->user_name}} </td>
-                          <td> no image</td>
+                          <td><img src="{{asset('storage/doctors/'.$doctor->image)}}" height="50px" width="100px"></td>
                           <td>{{$doctor->address}}</td>
                           <td>{{$doctor->specialist->specalty_name}}</td>
-                          <td>{{$doctor->created_at}}</td>
+                          <td>{{$doctor->created_at->diffForHumans()}}</td>
                           <td>{{$doctor->price}}</td>
                           <td><button class="btn btn-primary btn-sm" onclick="test({{$doctor->work_time}})">sohw</button></td>
                           <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
+                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="doctors/{{$doctor->id}}/edit " style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
                       </tr>
                       
                       @endforeach

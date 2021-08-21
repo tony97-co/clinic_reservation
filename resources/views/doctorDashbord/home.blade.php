@@ -1,5 +1,6 @@
-@extends('clinicAdmin.index')
+@extends('doctorDashbord.index')
 @section('content')
+
 <div class="row">
     <!-- Column -->
     <div class="col-md-6 col-lg-3">

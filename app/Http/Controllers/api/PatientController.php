@@ -26,14 +26,12 @@ class PatientController extends Controller
     {
         $Patient = Patient::where('phone', '=', $request->input('phone'))->first();
         if($Patient == null){
-                $new_user = Patient::create([ //انشاء مستخدم جديد
-                                'patient_name' => $request['name'],
-                                'phone' => $request['phone'],
-                                'email' => $request['email'],
-                             
-                                'password' =>$request['password'],
-                                'remember_token' => Str::random(60),
-                            ]);
+                $new_user = new Patient();
+                $new_user->patient_name = $request->input('name'); 
+                $new_user->phone = $request->input('phone'); 
+                $new_user->email = $request->input('email'); 
+                $new_user->password = $request->input('password'); 
+                $new_user->save();
                             return response()->json(
                               ['error'=>false,
                               'message'=>'',

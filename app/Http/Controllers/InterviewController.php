@@ -88,7 +88,7 @@ class InterviewController extends Controller
 
     /**
      * 
-     *
+     *she all interviews for the auth clinic admin on dashbord sidenav
      * 
      */
     public function clinicInterviews()
@@ -124,11 +124,23 @@ class InterviewController extends Controller
     {
         return view('clinicAdmin.reports.reservationReport');
     }
-
+    /**
+     * make the stutes of the interview pind 
+     *
+     *
+     */
     
+
+      public function pind($id){
+        $interview = interview::find($id);
+        $interview->state = 'pending';
+        $interview->save();
+
+     return redirect('/home');
+    }
     public function show(Interview $interview)
     {
-        //
+        return view('interviews.show')->with('interview',$interview);
     }
 
    

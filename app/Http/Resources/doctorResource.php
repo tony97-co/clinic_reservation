@@ -22,10 +22,10 @@ class doctorResource extends JsonResource
             "qualifications" => $this->qualifications,
             "birth" =>$this->birth,
             "about" => $this->about ,
-            "user"  => $this->user,
-            "specialist" => $this->specialist,
+            "user"  => $this->user->user_name,
+            "specialist" => $this->specialist->specalty_name,
             "clinic" => $this->clinic,
-            "interviews_count" => $this->interview->count()
+            "interviews_count" => $this->interviews_count
         ];
 
     }

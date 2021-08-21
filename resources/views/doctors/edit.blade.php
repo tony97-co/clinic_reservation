@@ -293,41 +293,46 @@
                     <div class="card-body wizard-content">
                         <h4 class="card-title">Doctor Adding</h4>
                         <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="/doctors" method="POST" enctype="multipart/form-data" class="mt-5">
+                        <form id="example-form" action="/doctors/{{$doctor->id}}/update" method="POST" enctype="multipart/form-data" class="mt-5">
                             @csrf
                             <div>
                                 <h3>Account</h3>
+
                                 <section>
                                     <label for="name"> Name *</label>
-                                    <input id="name" name="name" type="text" class="required form-control">
+                                    <input id="name" name="name" type="text" class="required form-control" value="{{$doctor->user->user_name}}">
                                     <label for="userName">Email *</label>
-                                    <input id="email" name="email" type="text" class="required email form-control">
+                                    <input id="email" name="email" type="text" value="{{$doctor->user->email}}" class="required email form-control">
                                     <label for="password">Password *</label>
-                                    <input id="password" name="password" type="text" class="required form-control">
+                                    <input id="password" name="password"  type="text" class=" form-control">
                                     <label for="confirm">Confirm Password *</label>
-                                    <input id="confirm" name="confirm" type="text" class="required form-control">
+                                    <input id="confirm" name="confirm" type="text" class="form-control">
                                     <p>(*) Mandatory</p>
                                 </section>
                                 <h3>Personnel information</h3>
                                 <section>
                                     <label for="address">image</label>
-                                    <input id="image" name="image" type="file" class=" form-control">
+                                    <img src="{{asset('storage/doctors/'.$doctor->image)}}" height="50px" width="100px">
+                                    <input id="image" name="image" type="file" value="{{$doctor->image}}" class=" form-control">
                                     <label for="address">Birth Day</label>
-                                    <input id="birth" name="birth" type="date" class=" form-control">
+                                    <input id="birth" name="birth" value="{{$doctor->birth}}" type="date" class=" form-control">
                                     <label for="phone">phone Number *</label>
-                                    <input  name="phone" type="text" class="required form-control">
+                                    <input  name="phone" type="text" value="{{$doctor->phone}}" class="required form-control">
                                     <label for="Specialty_id">Specialty *</label>
                                     <select class="required form-control"  name="Specialty_id">
-                                        <option   class="required form-control" selected>khartoum </option>
-                                        <option   class="required form-control" selected>bahary</option>
-                                        <option   class="required form-control" selected>omdorman </option>
+                                        @foreach ($specialties as $spechalty)
+                                            
+                                     
+                                        <option   class="required form-control" value="{{$spechalty->id}}"  selected>{{$spechalty->specalty_name}}</option>
+                                      
+                                        @endforeach
                                     </select>
                                     <label for="address">Address</label>
-                                    <input id="address" name="address" type="text" class=" form-control">
+                                    <input id="address" name="address" value="{{$doctor->address}}" type="text" class=" form-control">
                                     <label for="qualifications">qualifications</label>
-                                    <input id="qualifications" name="qualifications" type="text" class=" form-control">
+                                    <input id="qualifications" name="qualifications" value="{{$doctor->qualifications}}" type="text" class=" form-control">
                                     <label for="diagnosis_prise">Diagnosis prise</label>
-                                    <input id="diagnosis_prise" name="diagnosis_prise" type="text" class=" form-control">
+                                    <input id="diagnosis_prise" name="diagnosis_prise" value="{{$doctor->price}}.sd" type="text" class=" form-control">
                                     
                                     <p>(*) Mandatory</p>
                                 </section>
@@ -345,57 +350,125 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="customtable">
+                          
+
                                                 <tr>
-                                                   
+                                                    @foreach ($doctor->work_time as $work_time)
+    
+                                                    @if ($work_time->day == "saturday" )
+                                                        
+
                                                     <td><input type="hidden" name="day[]" value="saturday">saturday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"  value="{{$work_time->to}}" name="to[]"></td>
+                                                    
+                                                        
+                                                    @else
+                                                    <td><input type="hidden" name="day[]" value="saturday">saturday</td>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"  value="{{$work_time->to}}" name="to[]"></td>
+                                                    
                                                
+                                                    @endif
+                                                    @endforeach
                                                 </tr>
                                                 <tr>
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "sunday" )
+
+                                                    
                                                     
                                                     <td><input type="hidden" name="day[]" value="sunday">sunday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                              
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"  value="{{$work_time->to}}" name="to[]"></td>
+                                                    @else
+                                                    <td><input type="hidden" name="day[]" value="sunday">sunday</td>
+                                                    <td><input type="time"  name="frome[]"></td>
+                                                    <td><input type="time"  name="to[]"></td>
+                                                    @endif
+                                                    @endforeach
                                                 </tr>
                                                 <tr>
-                                                   
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "monday" ) 
                                                     
                                                     <td><input type="hidden" name="day[]" value="monday">monday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                 
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"  value="{{$work_time->to}}" name="to[]"></td>
+                                                    @else
+                                                    <td><input type="hidden" name="day[]" value="monday">monday</td>
+                                                    <td><input type="time"  name="frome[]"></td>
+                                                    <td><input type="time"   name="to[]"></td>
+                                                    @endif
+                                                    @endforeach
                                                 </tr>
                                                 <tr>
-                                                   
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "tuesday" )
+
                                                     <td><input type="hidden" name="day[]" value="tuesday">tuesday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                               
-                                                </tr>
-                                                <tr>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"  value="{{$work_time->to}}" name="to[]"></td>
                                                    
-                                                    <td><input type="hidden" name="day[]" value="wednesday">wednesday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    
-                                                    <td><input type="hidden" name="day[]" value="thursday">thursday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                   
-                                                </tr>
-                                                <tr>
+                                                        
+                                                    @else
+
+                                                    <td><input type="hidden" name="day[]" value="tuesday">tuesday</td>
+                                                    <td><input type="time"  name="frome[]"></td>
+                                                    <td><input type="time"   name="to[]"></td>
+                                                      
                                                  
-                                                    <td><input type="hidden" name="day[]" value="friday">friday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" style="width: 30px,hight:10px" name="to[]"></td>
-                                                   
+                                                    @endif
+                                                    @endforeach
                                                 </tr>
+                                                <tr>
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "wednesday" )
+                                                    <td><input type="hidden" name="day[]" value="wednesday">wednesday</td>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time" value="{{$work_time->to}}" name="to[]"></td>
+                                              
+                                                        
+                                                    @else
+                                                    <td><input type="hidden" name="day[]" value="wednesday">wednesday</td>
+                                                    <td><input type="time"  name="frome[]"></td>
+                                                    <td><input type="time"   name="to[]"></td>
+                                              
+                                                        
+                                                    
+                                                    @endif
+                                                    @endforeach
+                                                </tr>
+                                                <tr>
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "thursday" ) 
+                                                    <td><input type="hidden" name="day[]" value="thursday">thursday</td>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"   value="{{$work_time->to}}" name="to[]"></td>
+                                                
+                                                        
+                                                    @else
+                                                    <td><input type="hidden" name="day[]" value="thursday">thursday</td>
+                                                    <td><input type="time"  name="frome[]"></td>
+                                                    <td><input type="time"   name="to[]"></td>
+                                                
+                                                    @endif
+                                                    @endforeach
+                                                </tr>
+                                                <tr>
+                                                    @foreach ($doctor->work_time as $work_time)
+                                                    @if($work_time->day == "friday" )
+                                                    <td><input type="hidden" name="day[]" value="friday">friday</td>
+                                                    <td><input type="time" value="{{$work_time->from}}" name="frome[]"></td>
+                                                    <td><input type="time"   value="{{$work_time->to}}" name="to[]"></td>
+                                                @else
+                                                <td><input type="hidden" name="day[]" value="friday">friday</td>
+                                                    <td><input type="time" name="frome[]"></td>
+                                                    <td><input type="time"   name="to[]"></td>
+                                                    @endif
+                                                    @endforeach
+                                                </tr>
+                                            
                                             </tbody>
                                         </table>
                                     </div>

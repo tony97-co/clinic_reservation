@@ -3,7 +3,7 @@
 <div class="col-12">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Doctors</h5>
+            <h5 class="card-title">Interviews</h5>
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped table-bordered">
                             <thead>

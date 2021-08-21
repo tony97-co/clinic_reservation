@@ -22,7 +22,19 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+
     {
-        return view('home');
+        if(auth()->user()->isdoctor()) {
+
+            return view('doctorDashbord.home');
+        }
+
+        if (auth()->user()->IsClinicAdmin()) {
+            return view('clinicAdmin.home');
+        }
+        if (auth()->user()->IsSuperAdmin()) {
+            return view('superAdmin.home');
+        }
+        
     }
 }

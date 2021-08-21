@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patient;
 use Illuminate\Http\Request;
-
-class PatientController extends Controller
+use App\Models\interview;
+use App\Models\Examination;
+use App\Models\Doctor;
+class examinationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patient = Patient::all();
-        return view('superAdmin.pitant')->with('patients',$patient);
+        //
     }
 
     /**
@@ -23,11 +23,9 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function interviews($id)
+    public function create()
     {
-        $patient = Patient::find($id);
-
-        return view('patients.interviews')->with('patient',$patient);
+        //
     }
 
     /**
@@ -36,29 +34,38 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+
+    $examination = new Examination();
+$interview = interview::find($id);
+    $examination->examination_name = $request->name;
+    
+  
+    $examination->clinic_id = $interview->doctor->clinic_id ;
+    $examination->interview_id = $interview->id; 
+    $examination->save();
+    return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +74,10 @@ class PatientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patient  $patient
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +85,10 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy($id)
     {
         //
     }

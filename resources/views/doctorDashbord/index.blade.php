@@ -2,29 +2,9 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-        content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
-    <!-- Custom CSS -->
-    <link href="../../assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
-    <link href="../../assets/libs/jquery-steps/steps.css" rel="stylesheet">
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
+ <!-- css -->
+    @include('layouts.css')
+    <title>Doctor Dashbord</title>
 </head>
 
 <body>
@@ -211,8 +191,21 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+                            @guest
+            @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+               @endif
+
+              @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+              @endif
+              @else
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                                  <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"> 
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user me-1 ms-1"></i>
@@ -225,12 +218,19 @@
                                 <a class="dropdown-item" href="javascript:void(0)"><i
                                         class="ti-settings me-1 ms-1"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i
+                                        class="fa fa-power-off me-1 ms-1"></i>
+                                       
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>logout </a>
                                 <div class="dropdown-divider"></div>
                                 <div class="ps-4 p-10"><a href="javascript:void(0)"
                                         class="btn btn-sm btn-success btn-rounded text-white">View Profile</a></div>
                             </ul>
+                              @endguest
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -249,7 +249,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                @include('clinicAdmin.sideNav')
+                @include('doctorDashbord.siddNave')
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -264,21 +264,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title"></h4>
-                        <div class="ms-auto text-end">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -287,142 +273,22 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
+                <!-- Sales Cards  -->
                 <!-- ============================================================== -->
-                <div class="card">
-                    <div class="card-body wizard-content">
-                        <h4 class="card-title">Doctor Adding</h4>
-                        <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="/doctors" method="POST" enctype="multipart/form-data" class="mt-5">
-                            @csrf
-                            <div>
-                                <h3>Account</h3>
-                                <section>
-                                    <label for="name"> Name *</label>
-                                    <input id="name" name="name" type="text" class="required form-control">
-                                    <label for="userName">Email *</label>
-                                    <input id="email" name="email" type="text" class="required email form-control">
-                                    <label for="password">Password *</label>
-                                    <input id="password" name="password" type="text" class="required form-control">
-                                    <label for="confirm">Confirm Password *</label>
-                                    <input id="confirm" name="confirm" type="text" class="required form-control">
-                                    <p>(*) Mandatory</p>
-                                </section>
-                                <h3>Personnel information</h3>
-                                <section>
-                                    <label for="address">image</label>
-                                    <input id="image" name="image" type="file" class=" form-control">
-                                    <label for="address">Birth Day</label>
-                                    <input id="birth" name="birth" type="date" class=" form-control">
-                                    <label for="phone">phone Number *</label>
-                                    <input  name="phone" type="text" class="required form-control">
-                                    <label for="Specialty_id">Specialty *</label>
-                                    <select class="required form-control"  name="Specialty_id">
-                                        <option   class="required form-control" selected>khartoum </option>
-                                        <option   class="required form-control" selected>bahary</option>
-                                        <option   class="required form-control" selected>omdorman </option>
-                                    </select>
-                                    <label for="address">Address</label>
-                                    <input id="address" name="address" type="text" class=" form-control">
-                                    <label for="qualifications">qualifications</label>
-                                    <input id="qualifications" name="qualifications" type="text" class=" form-control">
-                                    <label for="diagnosis_prise">Diagnosis prise</label>
-                                    <input id="diagnosis_prise" name="diagnosis_prise" type="text" class=" form-control">
-                                    
-                                    <p>(*) Mandatory</p>
-                                </section>
-                                <h3>Work time</h3>
-                                <section>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                   
-                                                    <th scope="col">Day </th>
-                                                    <th scope="col">from</th>
-                                                    <th scope="col">to</th>
-                                                  
-                                                </tr>
-                                            </thead>
-                                            <tbody class="customtable">
-                                                <tr>
-                                                   
-                                                    <td><input type="hidden" name="day[]" value="saturday">saturday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                               
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    <td><input type="hidden" name="day[]" value="sunday">sunday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                              
-                                                </tr>
-                                                <tr>
-                                                   
-                                                    
-                                                    <td><input type="hidden" name="day[]" value="monday">monday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                 
-                                                </tr>
-                                                <tr>
-                                                   
-                                                    <td><input type="hidden" name="day[]" value="tuesday">tuesday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                               
-                                                </tr>
-                                                <tr>
-                                                   
-                                                    <td><input type="hidden" name="day[]" value="wednesday">wednesday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    
-                                                    
-                                                    <td><input type="hidden" name="day[]" value="thursday">thursday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" name="to[]"></td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                 
-                                                    <td><input type="hidden" name="day[]" value="friday">friday</td>
-                                                    <td><input type="time" name="frome[]"></td>
-                                                    <td><input type="time" style="width: 30px,hight:10px" name="to[]"></td>
-                                                   
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </section>
-                                <h3>Finish</h3>
-                                <section>
-                                    <div>
-                                    <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
-                                    <label for="acceptTerms">I certain of this data.</label>
-                                    </div>
-                                    <div style="margin-right:100px">
-                                    <button type="submit" class="btn btn-primary ">finsh</button>
-                                    </div>
-                                </section>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                @yield('content')
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+              
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Right sidebar -->
+                <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
-                <!-- .right-sidebar -->
+                
                 <!-- ============================================================== -->
-                <!-- End Right sidebar -->
+                <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -431,10 +297,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
-            </footer>
+            
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -447,53 +310,10 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-    <!-- All Jquery -->
+    <!-- js links -->
     <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
-    <!-- this page js -->
-    <script src="../../assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
-    <script src="../../assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script>
-        // Basic Example with form
-        var form = $("#example-form");
-        form.validate({
-            errorPlacement: function errorPlacement(error, element) { element.before(error); },
-            rules: {
-                confirm: {
-                    equalTo: "#password"
-                }
-            }
-        });
-        form.children("div").steps({
-            headerTag: "h3",
-            bodyTag: "section",
-            transitionEffect: "slideLeft",
-            onStepChanging: function (event, currentIndex, newIndex) {
-                form.validate().settings.ignore = ":disabled,:hidden";
-                return form.valid();
-            },
-            onFinishing: function (event, currentIndex) {
-                form.validate().settings.ignore = ":disabled";
-                return form.valid();
-            },
-            onFinished: function (event, currentIndex) {
-                alert("Submitted!");
-            }
-        });
-
-
-    </script>
+    @include('layouts.js')
+    
 </body>
 
 </html>

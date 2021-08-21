@@ -38,13 +38,9 @@ class doctorsController extends Controller
        }
        public function search(Request $request){
       
-         $name = 'mohamed';
-        $doctor = DB::table('users')->where([
-          ['name','=', $name],
-          ['role','=','doctor'],
-      ])->get();
-
-        if($doctor == null)
+         
+        $user = User::where('user_name',$request->name)->where('role','doctor')->first();
+        if($user == null)
                 return response()->json([
                   'error'=> true,
                   'message'=>'there is no doctors' ,  
@@ -52,7 +48,9 @@ class doctorsController extends Controller
                     404);
               else{
                 
-                return new userResource($doctor);
+               $doctor = Doctor::where('user_id',$user->id)->first();
+               
+                return new doctorResource($doctor);
               }
        }
 
