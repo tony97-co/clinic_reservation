@@ -61,6 +61,3 @@ Route::post('/examinations/add/{id}','examinationsController@store');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //
-Route::get('{any}',function(){
-    return view('Examinations.index');
-})->where('any','.*');
