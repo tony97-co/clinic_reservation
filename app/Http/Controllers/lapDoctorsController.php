@@ -40,13 +40,14 @@ class lapDoctorsController extends Controller
      */
     public function store(Request $request)
     {
+                             
         $lapdoctor = new User();
         $lapdoctor->user_name = $request->name;
         $lapdoctor->email = $request->email;
         $lapdoctor->phone = $request->phone;
         $lapdoctor->qualifications = $request->qualifications;
         $lapdoctor->address = $request->Address;
-        $lapdoctor->password = Hash::make($request->password);
+        $lapdoctor->password = Hash::make($request->Password);
         if( $request->hasfile('image')){
             $file = $request->file('image');
             

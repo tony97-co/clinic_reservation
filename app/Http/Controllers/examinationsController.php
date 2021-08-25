@@ -56,7 +56,10 @@ $interview = interview::find($id);
      */
     public function show($id)
     {
-        
+        $examination = Examination::find($id);
+
+        return view('Examinations.show')->with('examination',$examination);
+
     }
 
     /**

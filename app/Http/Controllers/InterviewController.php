@@ -138,6 +138,20 @@ class InterviewController extends Controller
 
      return redirect('/home');
     }
+    /**
+     * make the stutes of the interview finsh 
+     *
+     *
+     */
+    
+
+    public function finsh($id){
+        $interview = interview::find($id);
+        $interview->state = 'finished';
+        $interview->save();
+
+     return redirect('/home');
+    }
     public function show(Interview $interview)
     {
         return view('interviews.show')->with('interview',$interview);

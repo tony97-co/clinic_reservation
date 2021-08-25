@@ -12,7 +12,7 @@
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
         href="/doctor/{{auth()->user()->id}}/pindingInterviews" aria-expanded="false"><i class="far fa-calendar"></i><span class="hide-menu">Pinnded Interviews  </span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="/doctor/{{auth()->user()->id}}/finishedInterviews" aria-expanded="false"><i class="far fa-calendar"></i><span class="hide-menu"> Finished Interviews</span></a></li>
+            href="/doctor/{{auth()->user()->id}}/fineshedInterviews" aria-expanded="false"><i class="far fa-calendar"></i><span class="hide-menu"> Finished Interviews</span></a></li>
 
         
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

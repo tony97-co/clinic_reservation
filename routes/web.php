@@ -37,10 +37,11 @@ Route::post('/specialties', 'SpecialistsController@store');
 //interviews
 
 Route::get('/interview/{id}/pind', 'InterviewController@pind');
-
+Route::get('/interview/{id}/finsh', 'InterviewController@finsh');
 Route::get('/clinic/interviews', 'InterviewController@clinicInterviews');
 Route::get('/doctor/{id}/newinterviews', 'DoctorsController@newInterviews');
 Route::get('/doctor/{id}/pindingInterviews', 'DoctorsController@pinnededInterviewa');
+Route::get('/doctor/{id}/fineshedInterviews', 'DoctorsController@fineshedInterviewa');
 
 //patients
 Route::get('/patients', 'PatientController@index');

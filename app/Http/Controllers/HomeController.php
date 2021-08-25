@@ -35,6 +35,8 @@ class HomeController extends Controller
         if (auth()->user()->IsSuperAdmin()) {
             return view('superAdmin.home');
         }
-        
+        if (auth()->user()->lap_doctor()) {
+            return view('lapdoctors.dashbord.home');
+        }
     }
 }

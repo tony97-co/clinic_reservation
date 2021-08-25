@@ -242,4 +242,13 @@ class DoctorsController extends Controller
       
       return view('doctorDashbord.pindingInterviewa')->with('interviews',$interviews);
     }
+    public function fineshedInterviewa($id){
+ 
+      $doctor = Doctor::where('user_id', $id)->get();
+      $i = $doctor[0]->id;
+      
+      $interviews = Interview::where('doctor_id', $i)->where('state','finished')->get();
+      
+      return view('doctorDashbord.fineshedInterviews')->with('interviews',$interviews);
+    }
 }
