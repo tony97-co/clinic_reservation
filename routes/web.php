@@ -59,6 +59,19 @@ Route::get('/clinic/interviews/report', 'InterviewController@clinicInterviewsrep
 // the api for interviews based on web auth clinic user id
 Route::get('/ahmed', 'InterviewController@m');
 Route::post('/examinations/add/{id}','examinationsController@store');
+//super Admin Reports
+//*************************************************************************** */
+//تقرير عن جميع المقابلات
+Route::get('/superAadmin/interviews/report', 'reportsController@interviews');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//
+//Examinations
+/*********************************************************** */
+//Examinations show
+Route::get('/examination/{id}','examinationsController@show');
+//الفحوصات الجديد حسب طبيبالمعمل
+Route::get('/newExaminations','lapDoctorsController@newExaminations');
+//الفحوصات المجمدة حسب طبيبالمعمل
+Route::get('/pindedExaminations','lapDoctorsController@pindedExaminations');
+//الفحوصات المكتملة حسب طبيبالمعمل
+Route::get('/finshedExaminations','lapDoctorsController@finshedExaminations');

@@ -18,7 +18,7 @@
                         <th scope="col"  >Account</th>
                         <th scope="col"  >Account phone</th>
                         <th scope="col"  >pind</th>
-                        <th scope="col"  >finash</th>
+              
                     </tr>
                 </thead>
                    <tbody>
@@ -29,8 +29,7 @@
                     <td>{{$interview->phone}}</td>
                 
                     <td><a href="/interview/{{$interview->id}}/pind" style="background-color: rgb(228, 228, 51)" class="btn  btn-sm">pind</a></td>
-                    <td><a href="/interview/{{$interview->id}}/finsh" class="btn btn-success btn-sm text-white">finsh</a></td>
-
+                    
                 </tbody>
             </table>
         </div>

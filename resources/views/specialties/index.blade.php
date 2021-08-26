@@ -21,7 +21,7 @@
                     @endforeach
                     <tr>
                         <th scope="row" >{{$Specialty->id}}</th>
-                        <td>{{$Specialty->name}}</td>
+                        <td>{{$Specialty->specalty_name}}</td>
                         <td>{{$Specialty->des}}</td>
                         <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
                     </tr>

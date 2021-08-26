@@ -56,7 +56,7 @@
              <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
                                 class="mdi mdi-chart-line"></i><span class="hide-menu"> patients
                                  </span></a></li>
-            <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+            <li class="sidebar-item"><a href="/interviews/report" class="sidebar-link"><i
                               class="mdi mdi-chart-line"></i><span class="hide-menu"> Reservations
                                      </span></a></li>
             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Clinic;
+use App\Models\Examination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class lapDoctorsController extends Controller
@@ -112,5 +113,47 @@ class lapDoctorsController extends Controller
     public function destroy($id)
     {
         //
+    }
+     /**
+     * الفحوصات الجديدة حسب طبيب المعمل 
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function newExaminations()
+    {
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $examination = Examination::where('state','=','notstart')->where('clinic_id','=',$id)->get();
+
+        return view('lapdoctors.dashbord.newExaminations')->with('examinations',$examination);
+    }
+    /**
+     * الفحوصات المجمدة حسب طبيب المعمل 
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function pindedExaminations()
+    {
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $examination = Examination::where('state','=','pending')->where('clinic_id','=',$id)->get();
+
+        return view('lapdoctors.dashbord.newExaminations')->with('examinations',$examination);
+    }
+      /**
+     * الفحوصات المجمدة حسب طبيب المعمل 
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function finshedExaminations()
+    {
+        $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+        $id = $clinic_id[0];
+        $examination = Examination::where('state','=','finish')->where('clinic_id','=',$id)->get();
+
+        return view('lapdoctors.dashbord.finshedExaminations')->with('examinations',$examination);
     }
 }
