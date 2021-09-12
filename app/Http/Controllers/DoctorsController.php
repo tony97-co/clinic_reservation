@@ -41,7 +41,8 @@ class DoctorsController extends Controller
     public function create()
     {
         $doctor = Doctor::all();
-        return view('doctors.create' ,compact('doctor'));
+        $specialtes = Specialist::all();
+        return view('doctors.create' ,compact('specialtes'));
     }
 
     public function store(Request $request)
@@ -59,7 +60,7 @@ class DoctorsController extends Controller
            $doctor->address = $request->address;
            $doctor->qualifications = $request->qualifications;  
            $doctor->price = $request->diagnosis_prise;
-           $doctor->specialist_id = 1;
+           $doctor->specialist_id = $request->Specialty_id ;
            if( $request->hasfile('image')){
             $file = $request->file('image');
             
@@ -92,7 +93,7 @@ class DoctorsController extends Controller
               }   
             }
            
-         
+             $doctors = Doctor::where('clinic_id', $clinic_id[0])->get();
                   
         return view('doctors.index')->with('doctors',$doctors);
             
@@ -110,10 +111,10 @@ class DoctorsController extends Controller
      * @param  \App\Models\Doctors  $doctors
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function superIndex()
     {
-        $doctor = Doctor::all();
-        return view('doctors.show' ,compact('doctor'));
+        $doctors = Doctor::all();
+        return view('superAdmin.doctors' ,compact('doctors'));
 
 
     }
@@ -251,4 +252,20 @@ class DoctorsController extends Controller
       
       return view('doctorDashbord.fineshedInterviews')->with('interviews',$interviews);
     }
+    public function profile(){
+
+   $id = Auth()->user()->doctor()->pluck('doctors.id');
+
+            $doctor_id = $id[0];
+            $doctor = Doctor::find($doctor_id);
+      return view('doctorDashbord.profile')->with('doctor',$doctor);
+
+    }
+         public function profileEdit($id){
+
+               $doctor = Doctor::find($id);
+
+         return view('doctorDashbord.profileEdit')->with('doctor',$doctor);
+   
+       }
 }

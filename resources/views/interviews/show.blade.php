@@ -18,6 +18,7 @@
                         <th scope="col"  >Account</th>
                         <th scope="col"  >Account phone</th>
                         <th scope="col"  >pind</th>
+                        <th scope="col"  >Finish</th>
               
                     </tr>
                 </thead>
@@ -29,6 +30,7 @@
                     <td>{{$interview->phone}}</td>
                 
                     <td><a href="/interview/{{$interview->id}}/pind" style="background-color: rgb(228, 228, 51)" class="btn  btn-sm">pind</a></td>
+                    <td><a href="/interview/{{$interview->id}}/finish" style="background-color: rgb(10, 80, 13); color:white" class="btn  btn-sm">Finish</a></td>
                     
                 </tbody>
             </table>
@@ -59,7 +61,7 @@
                         <th scope="col" >Date</th>
                         <th scope="col" >Name</th>
                         <th scope="col"  >Result</th>
-                     
+                        <th scope="col"  >Result Date</th>
                         <th scope="col"  >Update</th>
                         <th scope="col"  >Delete</th>
                     </tr>
@@ -71,9 +73,11 @@
                        <tr>
                     <td>{{$examination->created_at->diffForHumans()}}</td>       
                     <td>{{$examination->examination_name}}</td>
-                    <td><a href="examination/{{$examination->id}}/result" class="btn btn-primary btn-sm">show</a></td>
-                    <td><a href="examination/{{$examination->id}}/result" style="background-color: yellow" class="btn  btn-sm">update</a></td>
-                    <td><a href="examination/{{$examination->id}}/result" class="btn btn-danger btn-sm">Delete</a></td>
+                    <td><img class="pic" src="{{asset('storage/results/'.$examination->result)}}" >
+                        <img class="picbig" src="{{asset('storage/results/'.$examination->result)}}" ></td>
+                    <td>{{$examination->updated_at}}</td>  
+                    <td><a href="examination/{{$examination->id}}/result" style="background-color: yellow" class="btn  btn-sm">Edit</a></td>
+                    <td><a href="/examination/{{$examination->id}}/delate" class="btn btn-danger btn-sm">Delete</a></td>
                     
                        </tr>
                        @endforeach

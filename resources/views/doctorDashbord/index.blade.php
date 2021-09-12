@@ -3,6 +3,22 @@
 
 <head>
  <!-- css -->
+ <style>
+    .pic{
+        width: 100px;
+        height: 50px;
+    }
+    .picbig{
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        z-index: 10;
+    }
+    .pic:hover + .picbig{
+        width: 500px;
+        height:300px ;
+    }
+</style>
     @include('layouts.css')
     <title>Doctor Dashbord</title>
 </head>
@@ -208,15 +224,8 @@
                                   <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"> 
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user me-1 ms-1"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet me-1 ms-1"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email me-1 ms-1"></i>
-                                    Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-settings me-1 ms-1"></i> Account Setting</a>
+                             
+                           
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i
@@ -227,7 +236,7 @@
                         @csrf
                     </form>logout </a>
                                 <div class="dropdown-divider"></div>
-                                <div class="ps-4 p-10"><a href="javascript:void(0)"
+                                <div class="ps-4 p-10"><a href="/doctor/profile"
                                         class="btn btn-sm btn-success btn-rounded text-white">View Profile</a></div>
                             </ul>
                               @endguest

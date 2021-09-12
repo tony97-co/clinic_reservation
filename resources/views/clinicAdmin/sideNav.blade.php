@@ -33,7 +33,7 @@
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                 href="pages-buttons.html" aria-expanded="false"><i class="fas fa-procedures"></i><span class="hide-menu"> patients</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="/Examinations" aria-expanded="false"><i class="fas fa-prescription-bottle"></i><span class="hide-menu"> Examinations</span></a></li>
+                        href="/clinic/examinations" aria-expanded="false"><i class="fas fa-prescription-bottle"></i><span class="hide-menu"> Examinations</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-line"></i><span
                     class="hide-menu">reports </span></a>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Interview;
 class HomeController extends Controller
 {
     /**
@@ -25,11 +25,18 @@ class HomeController extends Controller
 
     {
         if(auth()->user()->isdoctor()) {
+            $id = Auth()->user()->doctor()->pluck('doctors.id');
 
-            return view('doctorDashbord.home');
+            $doctor_id = $id[0];
+            $newCount = Interview::where('doctor_id',$doctor_id)->where('state','notstarted')->count();
+            $finshedCount = Interview::where('doctor_id',$doctor_id)->where('state','finished')->count();
+            $pindedCount = Interview::where('doctor_id',$doctor_id)->where('state','pending')->count();
+            $allCount = Interview::where('doctor_id',$doctor_id)->count();
+            return view('doctorDashbord.home')->with('newCount',$newCount)->with('finshedCount',$finshedCount)->with('pindedCount',$pindedCount)->with('allCount',$allCount);
         }
 
         if (auth()->user()->IsClinicAdmin()) {
+
             return view('clinicAdmin.home');
         }
         if (auth()->user()->IsSuperAdmin()) {

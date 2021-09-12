@@ -43,42 +43,24 @@
             <div class="card-body">
                 <h5 class="card-title mb-0">Examinations Result</h5>
               
-                @csrf
-                <div class="form-group row">
-                    <label for="fname"
-                        > Name</label>
-                    
-                        <input type="file" 
-                          name="result" >
-                    
-                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                </div>
-               
-                </form>
+             
 
                 <div class="col-md-8">
                     <div class="card">
                         <form  class="form-horizontal" action="/examination/{{$examination->id}}/update" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-                                <h4 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Specialty Add</h4>
+                                
                                 <div class="form-group row">
                                     <label for="fname"
-                                        class="col-sm-3 text-end control-label col-form-label"> Resu</label>
+                                        class="col-sm-3 text-end control-label col-form-label">Add  Result </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname"
-                                          name="name"  placeholder="Specialty Name Here">
+                                        <input type="file" class="form-control" id="fname"
+                                          name="result"  >
                                     </div>
                                 </div>
                                
-                                <div class="form-group row">
-                                    <label for="cono1"
-                                        class="col-sm-3 text-end control-label col-form-label">Description</label>
-                                    <div class="col-sm-9">
-                                        <textarea name="Description" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                              
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -297,6 +297,8 @@
                             <div>
                                 <h3>Account</h3>
                                 <section>
+                                    <label for="name">Clinic Name *</label>
+                                    <input id="name" name="name" type="text" class="required form-control">
                                     <label for="userName">Email *</label>
                                     <input id="email" name="email" type="text" class="required email form-control">
                                     <label for="password">Password *</label>
@@ -307,12 +309,11 @@
                                 </section>
                                 <h3>clinic info</h3>
                                 <section>
-                                    <label for="name">Clinic Name *</label>
-                                    <input id="name" name="name" type="text" class="required form-control">
+                               
                                    
                                     <label for="phone">phone Number *</label>
                                     <input  name="phone" type="text" class="required form-control">
-                                    <label for="location">spi *</label>
+                                    <label for="location">Location</label>
                                     <select class="required form-control"  name="location">
                                         <option   class="required form-control" selected>khartoum </option>
                                         <option   class="required form-control" selected>bahary</option>
@@ -327,7 +328,7 @@
                                 <section>
                                     <div>
                                     <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
-                                    <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+                                    <label for="acceptTerms">Submit!</label>
                                     </div>
                                     <div style="margin-right: 100px">
                                     <button type="submit" class="btn btn-primary ">finsh</button>

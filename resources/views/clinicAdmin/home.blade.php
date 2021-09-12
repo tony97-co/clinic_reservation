@@ -5,7 +5,7 @@
     <div class="col-md-6 col-lg-3">
         <div class="card card-hover">
             <div class="box bg-cyan text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                <h1 class="font-light text-white"><i class="far fa-calendar-plus"></i></h1>
                 <span class="text-white" style="font-size: medium " >33</span>
                 
                 <h6 class="text-white">New Reservations</h6>
@@ -17,7 +17,7 @@
     <div class="col-md-6 col-lg-3">
         <div class="card card-hover">
             <div class="box bg-success text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                <h1 class="font-light text-white"><i class="far fa-calendar-check"></i></h1>
                 
                 <span class="text-white" style="font-size: medium " >33</span>
                 
@@ -29,10 +29,10 @@
     <div class="col-md-6 col-lg-3">
         <div class="card card-hover">
             <div class="box bg-warning text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
+                <h1 class="font-light text-white"><i class="fad fa-calendar-minus"></i></h1>
                 <span class="text-white" style="font-size: medium " >33</span>
                 
-                <h6 class="text-white">pinding Reservations</h6>
+                <h6 class="text-white">pinding Interviews</h6>
                 
             </div>
         </div>
@@ -41,7 +41,7 @@
     <div class="col-md-6 col-lg-3">
         <div class="card card-hover">
             <div class="box bg-danger text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
+                <h1 class="font-light text-white"><i class="far fa-calendar-times"></i></h1>
                 <span class="text-white" style="font-size: medium " >33</span>
                 
                 <h6 class="text-white">Canceled Reservations</h6>
@@ -50,6 +50,58 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card card-hover">
+            <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+                <h1 class="font-light text-white"><i class="fas fa-user-md"></i></h1>
+                <span class="text-white" style="font-size: medium " >33</span>
+                
+                <h6 class="text-white">Total Doctors</h6>
+         
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card card-hover">
+            <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+                <h1 class="font-light text-white"><i class="fas fa-user-md"></i></h1>
+                
+                <span class="text-white" style="font-size: medium " >33</span>
+                
+                <h6 class="text-white">Total Lapdoctors</h6>
+            </div>
+        </div>
+    </div>
+    
+     <!-- Column -->
+     <div class="col-md-6 col-lg-3">
+        <div class="card card-hover">
+            <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+                <h1 class="font-light text-white"><i class="far fa-calendar"></i></h1>
+                <span class="text-white" style="font-size: medium " >33</span>
+                
+                <h6 class="text-white">Total Reservations</h6>
+         
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card card-hover">
+            <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+                <h1 class="font-light text-white"><i class="fas fa-prescription-bottle"></i></h1>
+                <span class="text-white" style="font-size: medium " >33</span>
+                
+                <h6 class="text-white">Total Examinations</h6>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
 
  <div class="row">
 <div class="col-12">

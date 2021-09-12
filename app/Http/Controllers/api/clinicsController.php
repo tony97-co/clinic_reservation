@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 use App\Models\Clinic;
 use App\Models\Doctor;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\doctorResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -45,10 +46,7 @@ class clinicsController extends Controller
               else{
                  
                 
-                return response()->json([
-                'error'=>false,
-                'message'=>'all doctors in this clinic',
-                'data'=>$doctors],200);
+                return doctorResource::collection($doctors);
               }
 
         }

@@ -30,19 +30,21 @@
     </li>
 
     <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-switch"></i><span
-            class="hide-menu">Admins </span></a>
+        href="javascript:void(0)" aria-expanded="false"><i class="far fa-calendar"></i><span
+            class="hide-menu">Interviews </span></a>
     <ul aria-expanded="false" class="collapse  first-level">
-        <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
-                    class="mdi mdi-account-plus"></i><span class="hide-menu">  Add Admin
+        <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="far fa-calendar-plus"></i><span class="hide-menu">  New
                 </span></a></li>
-        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
-                    class="mdi mdi-account-star-variant"></i><span class="hide-menu">  All Admins
+        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fad fa-calendar-minus"></i><span class="hide-menu">  Pinded
+                </span></a></li>
+                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="far fa-calendar-check"></i><span class="hide-menu">  Fineshed
                 </span></a></li>
     </ul>
    </li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                 href="/patients" aria-expanded="false"><i class="fas fa-procedures"></i><span class="hide-menu"> patients</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href="/superAdmin/doctors" aria-expanded="false"><i class="fas fa-user-md"></i><span class="hide-menu"> Doctors</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-line"></i><span
                     class="hide-menu">reports </span></a>

@@ -138,6 +138,7 @@ class InterviewController extends Controller
 
      return redirect('/home');
     }
+    
     /**
      * make the stutes of the interview finsh 
      *

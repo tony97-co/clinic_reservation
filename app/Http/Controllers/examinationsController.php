@@ -70,7 +70,22 @@ $interview = interview::find($id);
      */
     public function edit($id)
     {
-        //
+        $examination = Examination::find($id);
+        return view('Examinations.edit')->with('examination',$examination);
+    }
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function pindExamination($id)
+    {
+        $examination = Examination::find($id);
+        $examination->state = 'pending';
+        $examination->save();
+
+        return redirect('/home');
     }
 
     /**
@@ -82,7 +97,19 @@ $interview = interview::find($id);
      */
     public function update(Request $request, $id)
     {
-        //
+        $examination = Examination::find($id);
+        if( $request->hasfile('result'))
+        {
+        $file = $request->file('result');
+        $ext = $file->getClientOriginalExtension() ;
+        $filename = 'image' . '_' . time() . '.' . $ext ;
+        $file->storeAs('public/results' ,$filename); 
+        $examination->result = $filename;
+        $examination->state = 'finish';
+
+       }
+       $examination->update();
+      return redirect()->back();
     }
 
     /**
@@ -93,6 +120,28 @@ $interview = interview::find($id);
      */
     public function destroy($id)
     {
-        //
+        $examination = Examination::find($id);
+        $examination->delete();
+        return redirect()->back();
+    }
+    public function clinicAdminExaminations(){
+    $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
+   $id = $clinic_id[0];
+
+   $examinations  = Examination::where('clinic_id', $id)->get();
+        return view('clinicAdmin.examinations')->with('examinations',$examinations);
+    }
+    
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function resultShow($id)
+    {
+        $examination = Examination::find($id);
+        return view('doctorDashbord.resualt')->with('examination',$examination);
     }
 }

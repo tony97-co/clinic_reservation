@@ -318,9 +318,11 @@
                                     <input  name="phone" type="text" class="required form-control">
                                     <label for="Specialty_id">Specialty *</label>
                                     <select class="required form-control"  name="Specialty_id">
-                                        <option   class="required form-control" selected>khartoum </option>
-                                        <option   class="required form-control" selected>bahary</option>
-                                        <option   class="required form-control" selected>omdorman </option>
+                                        @foreach ($specialtes as $Specialty)
+                                        <option   class="required form-control" value="{{$Specialty->id}}" selected>{{$Specialty->specalty_name}} </option>
+                                        @endforeach
+                                      
+                                       
                                     </select>
                                     <label for="address">Address</label>
                                     <input id="address" name="address" type="text" class=" form-control">

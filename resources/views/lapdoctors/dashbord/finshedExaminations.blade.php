@@ -10,7 +10,13 @@
                   <thead>
                       <tr>
                         <th>Date</th>
-                                  
+
+                        <th>Name</th> 
+
+                          <th>Result</th> 
+
+                         <th>Result Date</th> 
+                         <th> Doctor</th> 
                         <th>patient</th>
                       
                         <th>open</th>
@@ -24,14 +30,18 @@
                                 
                         <tr>
                             <td>{{$examination->created_at }}</td>
-                          
+                            <td>{{$examination->examination_name }}</td>
+                            <td><img class="pic" src="{{asset('storage/results/'.$examination->result)}}" >
+                              <img class="picbig" src="{{asset('storage/results/'.$examination->result)}}" ></td>
+                            <td>{{$examination->updated_at }}</td>
+                            <td>{{$examination->interview->doctor->user->user_name}}</td>
                             <td>{{$examination->interview->patient->patient_name}}</td>
-    
+                          
                    
                         
                             <td>
                                 
-                                <a href="/examination/{{$examination->id}}" class="btn btn-primary btn-sm">Open</a></td>
+                                <a href="/examination/{{$examination->id}}/edit" class="btn btn-primary btn-sm">Edit</a></td>
                         
                       </tr>
                       
@@ -43,10 +53,17 @@
                   <tfoot>
                       <tr>
                         <th>Date</th>
-                                  
+
+                        <th>Name</th> 
+
+                          <th>Result</th> 
+
+                         <th>Result Date</th> 
+                         <th> Doctor</th> 
                         <th>patient</th>
-                       
-                        <th>Open</th>
+                      
+                        <th>open</th>
+                        
                       </tr>
                   </tfoot>
               </table>

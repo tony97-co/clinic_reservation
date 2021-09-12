@@ -7,7 +7,7 @@
         <div class="card card-hover">
             <div class="box bg-cyan text-center">
                 <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
-                <span class="text-white" style="font-size: medium " >33</span>
+                <span class="text-white" style="font-size: medium " >{{$newCount}}</span>
                 
                 <h6 class="text-white">New Reservations</h6>
          
@@ -20,7 +20,7 @@
             <div class="box bg-success text-center">
                 <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
                 
-                <span class="text-white" style="font-size: medium " >33</span>
+                <span class="text-white" style="font-size: medium " >{{$finshedCount}}</span>
                 
                 <h6 class="text-white">Fineshed Reservations</h6>
             </div>
@@ -31,9 +31,9 @@
         <div class="card card-hover">
             <div class="box bg-warning text-center">
                 <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
-                <span class="text-white" style="font-size: medium " >33</span>
+                <span class="text-white" style="font-size: medium " >{{$pindedCount}}</span>
                 
-                <h6 class="text-white">pinding Reservations</h6>
+                <h6 class="text-white">pinding Interviews</h6>
                 
             </div>
         </div>
@@ -41,11 +41,11 @@
     <!-- Column -->
     <div class="col-md-6 col-lg-3">
         <div class="card card-hover">
-            <div class="box bg-danger text-center">
+            <div class="box  text-center" style="background-color: rgb(41, 7, 71)">
                 <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
-                <span class="text-white" style="font-size: medium " >33</span>
+                <span class="text-white" style="font-size: medium " >{{$allCount}}</span>
                 
-                <h6 class="text-white">Canceled Reservations</h6>
+                <h6 class="text-white">All Interviews</h6>
               
             </div>
         </div>

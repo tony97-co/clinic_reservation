@@ -12,10 +12,8 @@ use App\Http\Resources\userResource;
 class doctorsController extends Controller
 {
     public function byClinicAndSspecialist($clinic,$specialist){
-        $doctors = DB::table('doctors')->where([
-            ['clinic_id','=',$clinic],
-            ['specialist_id','=',$specialist],
-        ])->get();
+        $doctors =Doctor::where('clinic_id','=',$clinic)->where('specialist_id','=',$specialist)->get();
+      
         if($doctors == null)
                 return response()->json([
                   'error'=> true,
@@ -25,10 +23,7 @@ class doctorsController extends Controller
               else{
                  
                 
-                return response()->json([
-                'error'=>false,
-                'message'=>'all doctors in this clinic and this specialist',
-                'data'=>$doctors],200);
+                return doctorResource::collection($doctors);
               }
         }
        public function show($id){

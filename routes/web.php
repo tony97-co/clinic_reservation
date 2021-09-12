@@ -37,12 +37,14 @@ Route::post('/specialties', 'SpecialistsController@store');
 //interviews
 
 Route::get('/interview/{id}/pind', 'InterviewController@pind');
-Route::get('/interview/{id}/finsh', 'InterviewController@finsh');
+Route::get('/interview/{id}/finish', 'InterviewController@finsh');
 Route::get('/clinic/interviews', 'InterviewController@clinicInterviews');
 Route::get('/doctor/{id}/newinterviews', 'DoctorsController@newInterviews');
 Route::get('/doctor/{id}/pindingInterviews', 'DoctorsController@pinnededInterviewa');
 Route::get('/doctor/{id}/fineshedInterviews', 'DoctorsController@fineshedInterviewa');
-
+Route::get('/doctor/profile', 'DoctorsController@profile');
+Route::get('/profile/doctor/{id}/edit', 'DoctorsController@profileEdit');
+Route::get('/profile/doctor/{id}/update', 'DoctorsController@profileUpdate');
 //patients
 Route::get('/patients', 'PatientController@index');
 Route::get('/patient/{id}/interviews', 'PatientController@interviews');
@@ -59,7 +61,11 @@ Route::get('/clinic/interviews/report', 'InterviewController@clinicInterviewsrep
 // the api for interviews based on web auth clinic user id
 Route::get('/ahmed', 'InterviewController@m');
 Route::post('/examinations/add/{id}','examinationsController@store');
-//super Admin Reports
+//super Admin 
+//********************************************************************* */
+//all doctors on the sidenav blade
+Route::get('/superAdmin/doctors','DoctorsController@superIndex');
+//Reports
 //*************************************************************************** */
 //تقرير عن جميع المقابلات
 Route::get('/superAadmin/interviews/report', 'reportsController@interviews');
@@ -69,9 +75,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*********************************************************** */
 //Examinations show
 Route::get('/examination/{id}','examinationsController@show');
+//the route for adding the resualt for the lapdoctor
+Route::post('/examination/{id}/update','examinationsController@update');
+
+Route::get('/examination/{id}/delate','examinationsController@destroy');
+
+Route::get('/examination/{id}/edit','examinationsController@edit');
+
+Route::get('/examination/{id}/pind','examinationsController@pindExamination');
+
+Route::get('/result/{id}/show','examinationsController@resultShow');
+
 //الفحوصات الجديد حسب طبيبالمعمل
 Route::get('/newExaminations','lapDoctorsController@newExaminations');
 //الفحوصات المجمدة حسب طبيبالمعمل
 Route::get('/pindedExaminations','lapDoctorsController@pindedExaminations');
 //الفحوصات المكتملة حسب طبيبالمعمل
 Route::get('/finshedExaminations','lapDoctorsController@finshedExaminations');
+//الفحوصات المكتملة حسب طبيبالمعمل
+Route::get('/clinic/examinations','examinationsController@clinicAdminExaminations');
