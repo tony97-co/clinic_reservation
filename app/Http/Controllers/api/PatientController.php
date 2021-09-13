@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\api;
 use Illuminate\Http\Response;
 use App\Models\Patient;
+use App\Models\Interview;
+use App\Models\Examination;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Http\Resources\interviewsResource;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Superglobals;
 class PatientController extends Controller
 {
     /**
@@ -118,9 +123,20 @@ class PatientController extends Controller
      * 
      *****************************************************************************************************/
      
-    public function index()
+    public function interviews($id)
     {
-        //
+        $Interviews = Interview::where('patient_id', '=',$id)->get(); 
+        if($Interviews == null)
+          return response()->json([
+            'error'=> true,
+            'message'=>'there is no interviews for this patient' ,  //الهاتف غير صحيح
+            'code'=> 1  ],
+              404);
+        else{
+           
+         
+          return interviewsResource::collection($Interviews);
+        }
     }
 
     /**
@@ -128,9 +144,40 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function examinations($id)
     {
-        //
+      $GLOBALS["idd"] = $id;
+        $examinations =  DB::table('examinations')->join('interviews',function($join,)
+        {
+
+          
+           $join->on('examinations.interview_id','=','interviews.id')
+     ->where('interviews.patient_id','=',$GLOBALS["idd"]);
+           }
+           )->join('clinics',function($join){
+
+             $join->on('examinations.clinic_id','=','clinics.id');
+           }
+           )->select('examinations.*','clinics.clinic_name')->get();
+
+           if($examinations == null){
+
+           
+           return response()->json([
+             'error'=> true,
+             'message'=>'there is no examinations for this patient' ,  //الهاتف غير صحيح
+             'code'=> 1  ],
+               404);
+           }
+         else{
+            
+          return response()->json([
+            'error'=>false,
+            'message'=>'',
+            'data'=>$examinations],200);
+         }
+     
+
     }
 
     /**
