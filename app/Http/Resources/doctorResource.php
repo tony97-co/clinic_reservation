@@ -17,10 +17,12 @@ class doctorResource extends JsonResource
         return [
             "id"=> $this->id,
             "address" => $this->address,
+
             "price" => $this->price,
             "start_date" => $this->created_at->diffForHumans(),
             "qualifications" => $this->qualifications,
             "birth" =>$this->birth,
+            "image" =>$this->image,
             "about" => $this->about ,
             "user_name"  => $this->user->user_name,
             "specialist_name" => $this->specialist->specalty_name,
