@@ -19,7 +19,7 @@
                          <th> Doctor</th> 
                         <th>patient</th>
                       
-                        <th>open</th>
+                        <th>Edit</th>
                         
                       </tr>
                   </thead>

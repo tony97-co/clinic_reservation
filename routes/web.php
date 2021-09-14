@@ -46,7 +46,7 @@ Route::get('/doctor/profile', 'DoctorsController@profile');
 Route::get('/profile/doctor/{id}/edit', 'DoctorsController@profileEdit');
 Route::get('/profile/doctor/{id}/update', 'DoctorsController@profileUpdate');
 //patients
-Route::get('/patients', 'PatientController@index');
+
 Route::get('/patient/{id}/interviews', 'PatientController@interviews');
 
 Auth::routes();
@@ -65,11 +65,14 @@ Route::post('/examinations/add/{id}','examinationsController@store');
 //********************************************************************* */
 //all doctors on the sidenav blade
 Route::get('/superAdmin/doctors','DoctorsController@superIndex');
+Route::get('/patients', 'PatientController@index');
+Route::get('/superAdmin/interviews','InterviewController@superAdminInterviews');
 //Reports
 //*************************************************************************** */
 //تقرير عن جميع المقابلات
 Route::get('/superAadmin/interviews/report', 'reportsController@interviews');
-
+Route::get('/superAadmin/clinics/report', 'reportsController@clinics');
+Route::get('/superAadmin/patients/report', 'reportsController@patients');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Examinations
 /*********************************************************** */

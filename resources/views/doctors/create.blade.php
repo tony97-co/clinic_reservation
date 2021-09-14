@@ -349,14 +349,14 @@
                                             <tbody class="customtable">
                                                 <tr>
                                                    
-                                                    <td><input type="hidden" name="day[]" value="saturday">saturday</td>
+                                                    <td><input type="hidden" name="day[]" value="Saturday">saturday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                                
                                                 </tr>
                                                 <tr>
                                                     
-                                                    <td><input type="hidden" name="day[]" value="sunday">sunday</td>
+                                                    <td><input type="hidden" name="day[]" value="Sunday">sunday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                               
@@ -364,21 +364,21 @@
                                                 <tr>
                                                    
                                                     
-                                                    <td><input type="hidden" name="day[]" value="monday">monday</td>
+                                                    <td><input type="hidden" name="day[]" value="Monday">monday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                                  
                                                 </tr>
                                                 <tr>
                                                    
-                                                    <td><input type="hidden" name="day[]" value="tuesday">tuesday</td>
+                                                    <td><input type="hidden" name="day[]" value="Tuesday">tuesday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                                
                                                 </tr>
                                                 <tr>
                                                    
-                                                    <td><input type="hidden" name="day[]" value="wednesday">wednesday</td>
+                                                    <td><input type="hidden" name="day[]" value="Wednesday">wednesday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                                 
@@ -386,14 +386,14 @@
                                                 <tr>
                                                     
                                                     
-                                                    <td><input type="hidden" name="day[]" value="thursday">thursday</td>
+                                                    <td><input type="hidden" name="day[]" value="Thursday">thursday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" name="to[]"></td>
                                                    
                                                 </tr>
                                                 <tr>
                                                  
-                                                    <td><input type="hidden" name="day[]" value="friday">friday</td>
+                                                    <td><input type="hidden" name="day[]" value="Friday">friday</td>
                                                     <td><input type="time" name="frome[]"></td>
                                                     <td><input type="time" style="width: 30px,hight:10px" name="to[]"></td>
                                                    

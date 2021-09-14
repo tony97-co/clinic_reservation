@@ -122,7 +122,7 @@ class PatientController extends Controller
      *                                   End  Profile Function 
      * 
      *****************************************************************************************************/
-     
+     //show the interviews for the patient by his id
     public function interviews($id)
     {
         $Interviews = Interview::where('patient_id', '=',$id)->get(); 
@@ -140,7 +140,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the examinations for the patient by his id
      *
      * @return \Illuminate\Http\Response
      */

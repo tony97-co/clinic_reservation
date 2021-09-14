@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Clinic;
 use App\Models\Interview;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon as time;
 use Carbon\Carbon;
@@ -14,45 +15,47 @@ class reportsController extends Controller
     //**************************************************************** */
     //the blade for the report
     public function interviews(){
+
+         $interviews = Interview::all();
         
-        return view('superAdmin.reports.interviews');
+        return view('superAdmin.reports.interviews')->with('interviews',$interviews);
     }
-    //the api for all interviews 
-    public function allInterviews(Request $request){
-     $interviews = Interview::all();
-     if($request->date){
 
+public function clinics()
+    {
+   $clinics = Clinic::all();
+   foreach($clinics as $clinic){
 
-        $to = time::today()->format('Y-m-d');
-        $from;
-        switch ($request->date){
-            case 'today':
-                $from = time::today()->format('Y-m-d');
-                // 19-10-2020
-                // 19-10-2020
-                break;
-            case 'yesterday':
-                $from = date('Y-m-d',strtotime("-1 days"));
-                // 18-10-2020
-                //19-10-2020
-                break;
-           
-            case 'month':
-                $from = time::today()->format('Y-m-1');
-                // 1-10-2020
-                //19-10-2020
-                break;  
-            case 'year':
-                $from = time::now()->subYears(1)->format('Y-m-d');
-                break;
-           
-            default:
-                $from = time::today()->format('Y-m-d');
-                break;
-        }
-$interviews = Interview::whereDate('date','>=',$from)->whereDate('date','<=',$to)->get();
+    $GLOBALS["clinic_id"] = $clinic->id;
+    $clinic->interviewsCount =  DB::table('interviews')->join('doctors',function($join){
+ 
+     
+      $join->on('interviews.doctor_id','=','doctors.id')->where('doctors.clinic_id','=', $GLOBALS["clinic_id"]);
+     })->count();
+   }
+   return view('superAdmin.reports.clinics')->with('clinics',$clinics);
+  
+   }
+   public function patients(){
+    $patients = Patient::all();
+    foreach($patients as $patient){
+        $GLOBALS["idd"] = $patient->id;
+        $patient->examinationsCount =  DB::table('examinations')->join('interviews',function($join,)
+        {
+
+          
+           $join->on('examinations.interview_id','=','interviews.id')
+     ->where('interviews.patient_id','=',$GLOBALS["idd"]);
+           }
+           )->count();
+
     }
-    
-}
+    return view('superAdmin.reports.pitants')->with('patients',$patients);
+   }
+   public function doctors(){
 
+       $doctors = Doctor::all();
+       return view('superAdmin.reports.doctors')->with('doctors',$doctors);
+       
+   }
 }

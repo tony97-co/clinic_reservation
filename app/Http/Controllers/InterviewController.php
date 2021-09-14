@@ -160,9 +160,10 @@ class InterviewController extends Controller
 
    
    
-    public function edit(Interview $interview)
+    public function superAdminInterviews( )
     {
-        //
+        $interviews = interview::all();
+        return view('superAdmin.interviews')->with('interviews',$interviews);
     }
 
    

@@ -29,18 +29,9 @@
         </ul>
     </li>
 
-    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-        href="javascript:void(0)" aria-expanded="false"><i class="far fa-calendar"></i><span
-            class="hide-menu">Interviews </span></a>
-    <ul aria-expanded="false" class="collapse  first-level">
-        <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="far fa-calendar-plus"></i><span class="hide-menu">  New
-                </span></a></li>
-        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fad fa-calendar-minus"></i><span class="hide-menu">  Pinded
-                </span></a></li>
-                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="far fa-calendar-check"></i><span class="hide-menu">  Fineshed
-                </span></a></li>
-    </ul>
-   </li>
+   
+   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+    href="/superAdmin/interviews" aria-expanded="false"><i class="far fa-calendar"></i><span class="hide-menu">Interviews</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                 href="/patients" aria-expanded="false"><i class="fas fa-procedures"></i><span class="hide-menu"> patients</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -49,16 +40,16 @@
                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-line"></i><span
                     class="hide-menu">reports </span></a>
             <ul aria-expanded="false" class="collapse  first-level">
-                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i
+                <li class="sidebar-item"><a href="/superAadmin/clinics/report" class="sidebar-link"><i
                             class="mdi mdi-chart-line"></i><span class="hide-menu">  Clinics
                         </span></a></li>
-                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+                <li class="sidebar-item"><a href="/superAadmin/doctors/report" class="sidebar-link"><i
                             class="mdi mdi-chart-line"></i><span class="hide-menu"> Doctors
                              </span></a></li>
-             <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i
+             <li class="sidebar-item"><a href="/superAadmin/patients/report" class="sidebar-link"><i
                                 class="mdi mdi-chart-line"></i><span class="hide-menu"> patients
                                  </span></a></li>
-            <li class="sidebar-item"><a href="/interviews/report" class="sidebar-link"><i
+            <li class="sidebar-item"><a href="/superAadmin/interviews/report" class="sidebar-link"><i
                               class="mdi mdi-chart-line"></i><span class="hide-menu"> Reservations
                                      </span></a></li>
             </ul>

@@ -4,6 +4,22 @@
 <head>
  <!-- css -->
     @include('layouts.css')
+    <style>
+        .pic{
+            width: 100px;
+            height: 50px;
+        }
+        .picbig{
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            z-index: 10;
+        }
+        .pic:hover + .picbig{
+            width: 500px;
+            height:300px ;
+        }
+    </style>
     <title>Clinic Admin</title>
 </head>
 

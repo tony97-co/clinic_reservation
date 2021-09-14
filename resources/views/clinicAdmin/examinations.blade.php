@@ -9,11 +9,12 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
+                                    <th>Examination Name</th>
+                                    <th>Examination Result</th>
                                     <th>patient Name</th>
                                     <th>patient Age</th>
                                     <th>Account</th>
-                                    <th>Examination Name</th>
-                                    <th>Examination Result</th>
+                                   
                                     <th>Status</th>
                                   
                                 </tr>
@@ -24,12 +25,13 @@
                                 
                                 <tr>
                                     <td>{{$examination->created_at->diffForHumans()}}</td>
+                                    <td>{{$examination->examination_name}}</td>
+                                    <td><img class="pic" src="{{asset('storage/results/'.$examination->result)}}" >
+                                        <img class="picbig" src="{{asset('storage/results/'.$examination->result)}}" ></td>
                                     <td>{{$examination->interview->name}}</td>
                                     <td>{{$examination->interview->age}}</td>
                                     <td>{{$examination->interview->patient->patient_name}}</td>
-                                    <td>{{$examination->examination_name}}</td>
-                                    <td>{{$examination->result}}</td>
-                                   
+                                    
                                     <td>{{$examination->state}}</td>
                                   
                                 </tr>
@@ -40,11 +42,12 @@
                             <tfoot>
                                 <tr>
                                     <th>Date</th>
+                                    <th>Examination Name</th>
+                                    <th>Examination Result</th>
                                     <th>patient Name</th>
                                     <th>patient Age</th>
                                     <th>Account</th>
-                                    <th>Examination Name</th>
-                                    <th>Examination Result</th>
+                                   
                                     <th>Status</th>
                                 </tr>
                             </tfoot>
