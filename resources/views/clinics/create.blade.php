@@ -263,21 +263,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Wizard</h4>
-                        <div class="ms-auto text-end">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -287,10 +273,11 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
+                 @include('partials._msg')
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body wizard-content">
-                        <h4 class="card-title">Basic Form Example</h4>
+                        <h4 class="card-title">Clinic Adding</h4>
                         <h6 class="card-subtitle"></h6>
                         <form id="example-form" action="/clinics" method="POST" class="mt-5">
                             @csrf

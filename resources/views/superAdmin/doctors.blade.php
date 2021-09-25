@@ -17,7 +17,7 @@
                           <th>Diagnosis prise</th>
                           <th>Work time</th>
                           <th>reservaations</th>
-                          <th>action</th>
+                     
                       </tr>
                   </thead>
                   <tbody>
@@ -34,35 +34,13 @@
                           <td>{{$doctor->price}}</td>
                           <td><button class="btn btn-primary btn-sm" onclick="test({{$doctor->work_time}})">sohw</button></td>
                           <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="doctors/{{$doctor->id}}/edit " style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
+                    
                       </tr>
                       
                       @endforeach
                     
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                     
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                
-                        <td>$320,800</td>
-                        <td>$320,800</td>
-                        <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><button class="btn btn-primary btn-sm">sohw</button></td>
-                          <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
-                    </tr>
+                   
+                   
                      
                   </tbody>
                   <tfoot>
@@ -76,7 +54,7 @@
                         <th>Diagnosis prise</th>
                         <th>Work time</th>
                         <th>reservaations</th>
-                        <th>action</th>
+                     
                       </tr>
                   </tfoot>
               </table>

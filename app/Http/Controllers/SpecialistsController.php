@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Specialist;
 use Illuminate\Http\Request;
 use App\Models\clinic;
+use Session;
 class SpecialistsController extends Controller
 {
     /**
@@ -35,11 +36,20 @@ class SpecialistsController extends Controller
      */
     public function store(Request $request)
     {
+        //val
+    $this->validate($request , array(
+        'name'           => 'required|max:255|unique:specialists,specalty_name',
+       'Description'      => 'required|max:255',
+        
+      
+   
+     ));
+
         $Specialists = new Specialist();
         $Specialists->specalty_name = $request->name;
         $Specialists->des = $request->Description;
         $Specialists->save();
-
+        Session::flash('SUCCESS','DONE ADD NEW SPECIALTY !');
         return redirect('/specialties');
 
     }
@@ -84,8 +94,18 @@ class SpecialistsController extends Controller
      * @param  \App\Models\Specialists  $specialists
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Specialists $specialists)
+    public function destroy($id)
     {
-        //
+        $Specialists = Specialist::find($id);
+        if ($Specialists->doctor->count() <= 0 ) {
+            $Specialists->delete();
+
+            Session::flash('SUCCESS','SPECIALTY DELETED !');
+        } else {
+            Session::flash('error',' CAN NOT DELETE THIS SPECIALTY!');
+        }
+        
+        return redirect('/specialties');
+        
     }
 }

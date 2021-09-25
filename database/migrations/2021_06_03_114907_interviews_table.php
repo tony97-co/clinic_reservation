@@ -14,6 +14,7 @@ class InterviewsTable extends Migration
     public function up()
     {
         Schema::create('interviews', function (Blueprint $table) {
+            
         $table->increments('id');
         $table->string('date');
         $table->string('name');

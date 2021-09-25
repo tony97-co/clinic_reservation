@@ -27,13 +27,16 @@ Route::get('/dashbord', function () {
 Route::resource('/interviews', 'InterviewController');
 
 Route::resource('clinics', 'ClinicsController');
+Route::get('/clinic/{id}/delete', 'ClinicsController@destroy');
 Route::resource('doctors', 'DoctorsController');
 Route::post('/doctors/{id}/update', 'DoctorsController@update');
 Route::resource('lapDoctors', 'lapDoctorsController');
 //specialties
 Route::get('/specialties/create', 'SpecialistsController@create');
 Route::get('/specialties', 'SpecialistsController@index');
+Route::get('/Specialty/{id}/delete', 'SpecialistsController@destroy');
 Route::post('/specialties', 'SpecialistsController@store');
+
 //interviews
 
 Route::get('/interview/{id}/pind', 'InterviewController@pind');
@@ -73,6 +76,7 @@ Route::get('/superAdmin/interviews','InterviewController@superAdminInterviews');
 Route::get('/superAadmin/interviews/report', 'reportsController@interviews');
 Route::get('/superAadmin/clinics/report', 'reportsController@clinics');
 Route::get('/superAadmin/patients/report', 'reportsController@patients');
+Route::get('/superAadmin/doctors/report', 'reportsController@doctors');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Examinations
 /*********************************************************** */
@@ -89,6 +93,8 @@ Route::get('/examination/{id}/pind','examinationsController@pindExamination');
 
 Route::get('/result/{id}/show','examinationsController@resultShow');
 
+Route::get('/lapdoctor/{id}/delete','lapDoctorsController@destroy');
+Route::get('/lapdoctor/{id}/edit','lapDoctorsController@edit');
 //الفحوصات الجديد حسب طبيبالمعمل
 Route::get('/newExaminations','lapDoctorsController@newExaminations');
 //الفحوصات المجمدة حسب طبيبالمعمل

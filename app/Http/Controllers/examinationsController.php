@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\interview;
 use App\Models\Examination;
 use App\Models\Doctor;
+use Session;
 class examinationsController extends Controller
 {
     /**

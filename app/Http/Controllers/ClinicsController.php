@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon as time;
 use Carbon\Carbon;
+use Session;
 class ClinicsController extends Controller
 {
     /**
@@ -46,6 +47,19 @@ class ClinicsController extends Controller
     public function store(Request $request)
     {
 
+        //val
+    $this->validate($request , array(
+
+
+
+
+
+        'email'          =>'required|max:255|email|unique:users',
+        
+      
+   
+        ));
+
         $user =  new User();
         $user->user_name =  $request->name;
         $user->email = $request->email;
@@ -63,6 +77,7 @@ class ClinicsController extends Controller
         $clinic->save();
 
         $user->clinics()->attach($clinic->id);
+        Session::flash('SUCCESS','DONE ADD NEW CLINIC !');
         return redirect('/clinics');
     }
 
@@ -115,7 +130,23 @@ class ClinicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $clinic= Clinic::findOrFail($id);
+        if ($clinic->doctors->count() <= 0) {
+            foreach ($clinic->users as $userId) {
+            $user = User::find($userId->id);
+            $user->clinics()->detach();
+            $user->delete();
+            }
+            
+            $clinic->delete();
+            Session::flash('SUCCESS',' CLINIC DELEDTED !');
+        }else{
+            Session::flash('error',' CAN NOT DELETE THIS CLINIC!');
+        }
+  
+        
+        return redirect('/clinics');
     }
      /**
      * the blade for doctors reports

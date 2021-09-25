@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Clinic;
 use App\Models\Examination;
 use Illuminate\Http\Request;
+use Session;
 use Illuminate\Support\Facades\Hash;
 class lapDoctorsController extends Controller
 {
@@ -41,7 +42,23 @@ class lapDoctorsController extends Controller
      */
     public function store(Request $request)
     {
-                             
+        $this->validate($request , array(
+
+
+
+
+
+            'password'           => 'required',
+            'address'           => 'required',
+            'qualifications'           => 'required',
+            'name'           => 'required|max:255',
+            'email'          =>'required|max:255|email|unique:users',
+            ''
+            
+          
+       
+         ));
+                   
         $lapdoctor = new User();
         $lapdoctor->user_name = $request->name;
         $lapdoctor->email = $request->email;
@@ -65,6 +82,7 @@ class lapDoctorsController extends Controller
         $clinic_id = Auth()->user()->clinics()->pluck('clinics.id');
         $id = $clinic_id[0];
         $lapdoctor->clinics()->attach($id);
+        Session::flash('SUCCESS','DONE ADD NEW LAPDOCTOR !');
         return redirect('/lapDoctors');
 
         
@@ -89,7 +107,9 @@ class lapDoctorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lapdoctor = User::find($id);
+
+        return view('lapdoctors.create')->with('lapdoctor',$lapdoctor);
     }
 
     /**
@@ -112,7 +132,10 @@ class lapDoctorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lapdoctor = User::find($id);
+        $lapdoctor->clinics()->detach();
+        Session::flash('SUCCESS','LAPDOCTOR DELETED !');
+        return redirect('/lapDoctors');
     }
      /**
      * الفحوصات الجديدة حسب طبيب المعمل 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 use App\Models\Interview;
+use App\Models\Examination;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -70,9 +71,25 @@ class interviewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function interviewExaminations($id)
     {
-        //
+        $examination = Examination::where('interview_id','=',$id)->where('state','=','finish')->get();
+        if($examination == null)
+        {
+        return response()->json([
+          'error'=> true,
+          'message'=>'there is no rsualts yat' ,  
+          ],
+            404);
+        }
+      else{
+         
+       
+        return response()->json([
+        'error'=>false,
+        'message'=>'',
+        'data'=>$examination],200);
+      }
     }
 
     /**

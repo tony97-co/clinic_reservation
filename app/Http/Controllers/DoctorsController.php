@@ -9,6 +9,7 @@ use App\Models\Interview;
 use Illuminate\Http\Request;
 use PhpParser\Comment\Doc;
 use App\Models\Work_time;
+use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -47,6 +48,17 @@ class DoctorsController extends Controller
 
     public function store(Request $request)
     {
+
+    //val
+    $this->validate($request , array(
+      'name'           => 'required|max:255',
+      'email'          =>'required|max:255|email|unique:users',
+      
+    
+ 
+   ));
+
+
         $user =  new User();
         $user->user_name =  $request->name;
         $user->email = $request->email;
@@ -92,7 +104,8 @@ class DoctorsController extends Controller
                 $work_time->save();
               }   
             }
-           
+           //flash
+           Session::flash('SUCCESS','DONE ADD NEW Doctor !');
              $doctors = Doctor::where('clinic_id', $clinic_id[0])->get();
                   
         return view('doctors.index')->with('doctors',$doctors);

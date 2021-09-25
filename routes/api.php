@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //patient apis
+
 Route::post('/Patient/register',[PatientController::class,'Register']);
 Route::post('/Patient/login',[PatientController::class,'login']);
 Route::post('/Patient/{id}/profile',[PatientController::class,'profile']);
@@ -47,6 +48,8 @@ Route::post('/search/clinic',[clinicsController::class,'search']);
 //******************************************************** */
 //تسجيل المقابلة الجديدة وارجع الترتيب للمريض 
 Route::post('/interviews',[interviewsController::class,'store']);
+//الفخوصات الجديدة للمريض حسي المقابلة
+Route::get('/interviews/{id}/examinations',[interviewsController::class,'interviewExaminations']);
 
 
 //التخصصات

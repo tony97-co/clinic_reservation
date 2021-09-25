@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\Clinic;
 use App\Models\Interview;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon as time;
 use Carbon\Carbon;
-
+use Session;
 class reportsController extends Controller
 {
     //super admain reports
@@ -56,6 +57,6 @@ public function clinics()
 
        $doctors = Doctor::all();
        return view('superAdmin.reports.doctors')->with('doctors',$doctors);
-       
+
    }
 }

@@ -33,7 +33,7 @@
                        
                         <td>no image</td>
                         <td><a href=""><button style="background-color: #27a9e3" type="button" class="btn  btn-sm">{{$clinic->doctors->count()}}</button></a></td>
-                        <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
+                        <td><a class="pr-2" href="/clinic/{{$clinic->id}}/delete"><i class="fas fa-trash " style="color: #eb0f3f" > </i></td>
                     </tr>
                     @endforeach
                 </tbody>

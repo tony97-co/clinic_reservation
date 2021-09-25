@@ -35,7 +35,7 @@
                       
                         <td>{{$lapdoctor->qualifications}}</td>
                       
-                        <td><a class="pr-2" href=""><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
+                        <td><a class="pr-2" href="/lapdoctor/{{$lapdoctor->id}}/delete"><i class="fas fa-trash " style="color: #eb0f3f" > </i></a><a href="/lapdoctor/{{$lapdoctor->id}}/edit" style="margin-left:10px"><i class="fas fa-edit" style="color: #1e0feb"></i></a></td>
                     </tr>
                     @endif
                     @endforeach

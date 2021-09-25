@@ -288,6 +288,7 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
+                   @include('partials._msg')
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body wizard-content">
