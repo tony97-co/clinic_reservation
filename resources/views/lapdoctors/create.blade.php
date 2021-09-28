@@ -19,7 +19,7 @@
                         <label for="fname"
                             class="col-sm-3 text-end control-label col-form-label"> Address</label>
                         <div class="col-sm-9">
-                            <input type="text" name="Address" class="form-control" id="fname"
+                            <input type="text" name="address" class="form-control" id="fname"
                                 placeholder="Address Here">
                         </div>
                     </div>
