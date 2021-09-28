@@ -9,6 +9,11 @@ use Session;
 use Illuminate\Support\Facades\Hash;
 class lapDoctorsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +53,7 @@ class lapDoctorsController extends Controller
 
 
 
-            'password'           => 'required',
+         
             'address'           => 'required',
             'qualifications'           => 'required',
             'name'           => 'required|max:255',

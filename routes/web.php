@@ -84,10 +84,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/examination/{id}','examinationsController@show');
 //the route for adding the resualt for the lapdoctor
 Route::post('/examination/{id}/update','examinationsController@update');
-
+Route::post('/examination/{id}/result','examinationsController@result');
 Route::get('/examination/{id}/delate','examinationsController@destroy');
 
 Route::get('/examination/{id}/edit','examinationsController@edit');
+
 
 Route::get('/examination/{id}/pind','examinationsController@pindExamination');
 

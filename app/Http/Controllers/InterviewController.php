@@ -10,6 +10,11 @@ use Carbon\Carbon;
 use Session;
 class InterviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * api for geting all intrviews based on auth user id for the report 
      *
@@ -136,7 +141,7 @@ class InterviewController extends Controller
         $interview = interview::find($id);
         $interview->state = 'pending';
         $interview->save();
-
+        Session::flash('SUCCESS',' INTERVIEW PINDED !');
      return redirect('/home');
     }
     
@@ -151,7 +156,7 @@ class InterviewController extends Controller
         $interview = interview::find($id);
         $interview->state = 'finished';
         $interview->save();
-
+        Session::flash('SUCCESS',' INTERVIEW FINISHED !');
      return redirect('/home');
     }
     public function show(Interview $interview)

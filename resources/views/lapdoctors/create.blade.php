@@ -34,7 +34,7 @@
                     <div class="form-group row">
                       
                         <div class="col-sm-9">
-                            <input  type="hidden" value="12345678" name="Password" class="form-control" id="password"
+                            <input  type="hidden" value="12345678" name="password" class="form-control" id="password"
                                 placeholder="Password Here">
                         </div>
                     </div>

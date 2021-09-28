@@ -62,7 +62,7 @@
                         <th scope="col" >Name</th>
                         <th scope="col"  >Result</th>
                         <th scope="col"  >Result Date</th>
-                        <th scope="col"  >Update</th>
+             
                         <th scope="col"  >Delete</th>
                     </tr>
                 </thead>
@@ -76,7 +76,7 @@
                     <td><img class="pic" src="{{asset('storage/results/'.$examination->result)}}" >
                         <img class="picbig" src="{{asset('storage/results/'.$examination->result)}}" ></td>
                     <td>{{$examination->updated_at}}</td>  
-                    <td><a href="examination/{{$examination->id}}/result" style="background-color: yellow" class="btn  btn-sm">Edit</a></td>
+                  
                     <td><a href="/examination/{{$examination->id}}/delate" class="btn btn-danger btn-sm">Delete</a></td>
                     
                        </tr>

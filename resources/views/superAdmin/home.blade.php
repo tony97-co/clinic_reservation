@@ -3,42 +3,160 @@
 
 
 <div class="row">
-    <!-- Column -->
-    <div class="col-md-6 col-lg-3">
-        <div class="card card-hover">
-            <div class="box bg-cyan text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
-                <h6 class="text-white">Dashboard</h6>
-            </div>
+   <!-- Column -->
+   <div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div class="box bg-cyan text-center">
+            <h1 class="font-light text-white"><i class="far fa-calendar-plus"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">New Reservations</h6>
+     
         </div>
     </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-3">
-        <div class="card card-hover">
-            <div class="box bg-success text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
-                <h6 class="text-white">Charts</h6>
-            </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div class="box bg-success text-center">
+            <h1 class="font-light text-white"><i class="far fa-calendar-check"></i></h1>
+            
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Fineshed Reservations</h6>
         </div>
     </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-3">
-        <div class="card card-hover">
-            <div class="box bg-warning text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
-                <h6 class="text-white">Widgets</h6>
-            </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div class="box bg-warning text-center">
+            <h1 class="font-light text-white"><i class="fad fa-calendar-minus"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">pinding Interviews</h6>
+            
         </div>
     </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-3">
-        <div class="card card-hover">
-            <div class="box bg-danger text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
-                <h6 class="text-white">Tables</h6>
-            </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div class="box bg-danger text-center">
+            <h1 class="font-light text-white"><i class="far fa-calendar-times"></i></h1>
+            <span class="text-white" style="font-size: medium " >0</span>
+            
+            <h6 class="text-white">Canceled Reservations</h6>
+          
         </div>
     </div>
+</div>
+</div>
+<div class="row">
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="mdi mdi-domain"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Clinics</h6>
+     
+        </div>
+    </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="fas fa-procedures"></i></h1>
+            
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Patients</h6>
+        </div>
+    </div>
+</div>
+
+ <!-- Column -->
+ <div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="mdi mdi-chart-scatterplot-hexbin"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Specialties</h6>
+     
+        </div>
+    </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="fas fa-users"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total System Users</h6>
+          
+        </div>
+    </div>
+</div>
+
+   
+</div>
+<div class="row">
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="fas fa-user-md"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Doctors</h6>
+     
+        </div>
+    </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="fas fa-user-md"></i></h1>
+            
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Lapdoctors</h6>
+        </div>
+    </div>
+</div>
+
+ <!-- Column -->
+ <div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="far fa-calendar"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Reservations</h6>
+     
+        </div>
+    </div>
+</div>
+<!-- Column -->
+<div class="col-md-6 col-lg-3">
+    <div class="card card-hover">
+        <div style="background-color: rgb(34, 5, 61)" class="box  text-center">
+            <h1 class="font-light text-white"><i class="fas fa-prescription-bottle"></i></h1>
+            <span class="text-white" style="font-size: medium " ></span>
+            
+            <h6 class="text-white">Total Examinations</h6>
+          
+        </div>
+    </div>
+</div>
+
+   
 </div>
 <div class="row" style="background-color: coral;background-image:url({{asset('../../images/background/img4.jpg')}})">
     <div class="col-md-12">
@@ -52,54 +170,10 @@
                 </div>
                 <div class="row">
                     <!-- column -->
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <canvas id="myChart" style="height: 90px ,width:40px"></canvas>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-user mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">2540</h5>
-                                    <small class="font-light">Total Users</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-plus mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">120</h5>
-                                    <small class="font-light">New Users</small>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-cart-plus mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">656</h5>
-                                    <small class="font-light">Total Shop</small>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-tag mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">9540</h5>
-                                    <small class="font-light">Total Orders</small>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-table mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">100</h5>
-                                    <small class="font-light">Pending Orders</small>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <div class="bg-dark p-10 text-white text-center">
-                                    <i class="fa fa-globe mb-1 font-16"></i>
-                                    <h5 class="mb-0 mt-1">8540</h5>
-                                    <small class="font-light">Online Orders</small>
-                                </div>
-                            </div>
-                        </div>
+                    
                     </div>
                     <!-- column -->
                 </div>

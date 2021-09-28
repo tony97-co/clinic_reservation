@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Interview;
 use App\Models\Examination;
+use App\Models\Clinic;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon as time;
 use Carbon\Carbon;
@@ -100,6 +101,14 @@ class HomeController extends Controller
             ->with('clinicExams',$clinicExams);
         }
         if (auth()->user()->IsSuperAdmin()) {
+
+            $SnewCount = Interview::where('state','notstarted')->count();
+            $finshedCount = Interview::where('state','finished')->count();
+            $pindedCount = Interview::where('state','pending')->count();
+            $clinicExams =Examination::all()->count();
+            $clinics =Clinic::all()->count();
+            $clinicDoctorsCount = Doctor::all()->count();
+            
             return view('superAdmin.home');
         }
         if (auth()->user()->lap_doctor()) {

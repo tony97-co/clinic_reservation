@@ -12,6 +12,11 @@ use Carbon\Carbon;
 use Session;
 class reportsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //super admain reports
     //**************************************************************** */
     //the blade for the report

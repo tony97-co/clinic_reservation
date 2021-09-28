@@ -9,6 +9,7 @@
               <table id="zero_config" class="table table-striped table-bordered">
                   <thead>
                       <tr>
+                        <th>Name</th>
                         <th>Date</th>
                                   
                         <th>patient</th>
@@ -23,6 +24,7 @@
                                     
                                 
                         <tr>
+                          <td>{{$examination->examination_name }}</td>
                             <td>{{$examination->created_at }}</td>
                           
                             <td>{{$examination->interview->patient->patient_name}}</td>

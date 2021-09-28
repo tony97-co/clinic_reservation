@@ -13,7 +13,7 @@
                     <tr >
                      
                      
-                       
+                        <th scope="col" > Examination Name</th>
                         <th scope="col" > Interview Date</th>
                         <th scope="col"  >patient</th>
                         <th scope="col" >patient Age</th>
@@ -24,6 +24,7 @@
                     </tr>
                 </thead>
                    <tbody>
+                    <td>{{$examination->examination_name}}</td>  
                     <td>{{$examination->interview->date}}</td>       
                     <td>{{$examination->interview->name}}</td>
                     <td>{{$examination->interview->age}}</td>
@@ -47,7 +48,7 @@
 
                 <div class="col-md-8">
                     <div class="card">
-                        <form  class="form-horizontal" action="/examination/{{$examination->id}}/update" method="POST" enctype="multipart/form-data">
+                        <form  class="form-horizontal" action="/examination/{{$examination->id}}/result" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 

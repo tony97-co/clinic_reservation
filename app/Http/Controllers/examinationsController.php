@@ -9,6 +9,11 @@ use App\Models\Doctor;
 use Session;
 class examinationsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,6 +51,7 @@ $interview = interview::find($id);
     $examination->clinic_id = $interview->doctor->clinic_id ;
     $examination->interview_id = $interview->id; 
     $examination->save();
+    Session::flash('SUCCESS','DONE ADD NEW Examination !');
     return redirect()->back();
     }
 
@@ -85,8 +91,8 @@ $interview = interview::find($id);
         $examination = Examination::find($id);
         $examination->state = 'pending';
         $examination->save();
-
-        return redirect('/home');
+        Session::flash('SUCCESS',' Examination PINDET  !');
+        return redirect('/pindedExaminations');
     }
 
     /**
@@ -96,7 +102,7 @@ $interview = interview::find($id);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function result(Request $request, $id)
     {
         $examination = Examination::find($id);
         if( $request->hasfile('result'))
@@ -107,12 +113,32 @@ $interview = interview::find($id);
         $file->storeAs('public/results' ,$filename); 
         $examination->result = $filename;
         $examination->state = 'finish';
-
+        Session::flash('SUCCESS','DONE ADD Examination RESUALT  !');
        }
        $examination->update();
-      return redirect()->back();
+      return redirect('/finshedExaminations');
     }
-
+    public function update(Request $request, $id)
+    {
+        $examination = Examination::find($id);
+        if( $request->name){
+            $examination-> examination_name = $request->name;
+        }
+        if( $request->hasfile('result'))
+        {
+        $file = $request->file('result');
+        $ext = $file->getClientOriginalExtension() ;
+        $filename = 'image' . '_' . time() . '.' . $ext ;
+        $file->storeAs('public/results' ,$filename); 
+        $examination->result = $filename;
+        $examination->state = 'finish';
+        Session::flash('SUCCESS',' Examination UPDATED  !');
+       }
+       $examination->update();
+      return redirect('/finshedExaminations');
+    }
+   
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -123,6 +149,7 @@ $interview = interview::find($id);
     {
         $examination = Examination::find($id);
         $examination->delete();
+        Session::flash('SUCCESS',' Examination DELETED !');
         return redirect()->back();
     }
     public function clinicAdminExaminations(){
