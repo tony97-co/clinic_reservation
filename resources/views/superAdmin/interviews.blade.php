@@ -9,14 +9,14 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Doctor</th>
+                                    <th>Doctor </th>
                                     <th>Doctor Specialty</th>
                                     <th>The Clinic</th>
-                                    <th>patient</th>
+                                    <th>patient Name</th>
                                     <th>patient Age</th>
                                     <th>Account</th>
                                
-                                    <th>Status</th>
+                                    <th>Interview Status</th>
                                     <th>Examination</th>
                                 </tr>
                             </thead>
@@ -47,13 +47,13 @@
                             <tfoot>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Doctor</th>
+                                    <th>Doctor </th>
                                     <th>Doctor Specialty</th>
                                     <th>The Clinic</th>
-                                    <th>patient</th>
+                                    <th>patient Name</th>
                                     <th>patient Age</th>
                                     <th>Account</th>
-                                    <th>Status</th>
+                                    <th>Interview Status</th>
                                     <th>Examination</th>
 
                                 </tr>
