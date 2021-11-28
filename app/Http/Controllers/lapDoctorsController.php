@@ -69,7 +69,7 @@ class lapDoctorsController extends Controller
         $lapdoctor->phone = $request->phone;
         $lapdoctor->qualifications = $request->qualifications;
         $lapdoctor->address = $request->address;
-        $lapdoctor->password = Hash::make($request->Password);
+        $lapdoctor->password = Hash::make($request->password);
         if( $request->hasfile('image')){
             $file = $request->file('image');
             

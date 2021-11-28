@@ -32,9 +32,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                      
+                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">
+                            Password</label>
                         <div class="col-sm-9">
-                            <input  type="hidden" value="12345678" name="password" class="form-control" id="password"
+                            <input  type="password" name="password" class="form-control" id="password"
                                 placeholder="Password Here">
                         </div>
                     </div>
